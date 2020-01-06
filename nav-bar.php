@@ -4,6 +4,7 @@ if (session_id() == "") {
 }
 ?>
 
+<div class="container-fluid" id="navigation-bar">
 <div class="container">
     <ul class="nav">
 
@@ -12,6 +13,7 @@ if (session_id() == "") {
         // Wamp add VirtualHost to get rid of this
         $baseUrl = '/php_web_project/tutorial';
 
+        // Todo: Add icons
         // Make a list of every possible URL for the site
         $urls = array(
             'Home' => '/',
@@ -28,7 +30,8 @@ if (session_id() == "") {
         foreach ($urls as $name => $url) {
             if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE && $name == 'Login') {
                 // produce logout link if logged in TODO: call session_destroy() when logout button is clicked
-                print '<li id="Logoutlink" class="nav-link" onclick="logout()"><a href="#">Logout</a></li>';
+                print '<li id="Logoutlink" class="nav-link" onclick="logout()">
+                <i class="fa fa-sign-out">&nbsp;</i><a href="#">Logout</a></li>';
                 continue;
             } else {
                 print '<li id="' . $name . 'link" ' . (($currentPage === $name) ? ' class="nav-link active" ' : ' class="nav-link" ') .
@@ -68,4 +71,5 @@ if (session_id() == "") {
 
 
     </ul>
+</div>
 </div>

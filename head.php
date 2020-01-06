@@ -5,7 +5,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
       <title><?php echo $title ?></title>
-      <link rel="icon" href="./media/icon.png">
+      <link rel="icon" href="./media/iconw.png">
 
       <meta name="viewport" content="width=device-width, initial-scale=1">
 

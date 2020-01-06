@@ -27,7 +27,7 @@ if (session_id() == "") {
         var loggedin = '<?php if (isset($_SESSION['loggedin'])) { echo $_SESSION['loggedin'];} else { echo 0;} ?>';
     </script>
 
-    <div class="container">
+    <div class="container" id="content">
 
         <div class="row">
             <div id="news" class="col-md-8">
@@ -36,6 +36,17 @@ if (session_id() == "") {
                     <button id="create-news" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Skriv nytt innlegg"><i class="fa fa-plus" aria-hidden="true"></i></button>
                     <button id="update-news" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Endre ett innlegg"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                     <button id="delete-news" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Slett ett eller flere innlegg"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                </div>
+
+                <div id="news-functions">
+                    <button id="expand-news" disabled="true" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Utvid alle innlegg"><i class="fa fa-expand" aria-hidden="true"></i></button>
+                    <button id="filter-news" disabled="true" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Filtrer innlegg"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                <!--
+                    Search
+                    Filter
+                    Order by
+                    .. change sql query based on selection
+                -->
                 </div>
 
                 <script type="text/javascript">
@@ -122,8 +133,14 @@ if (session_id() == "") {
                             document.body.appendChild(createNewsPostModal);
                             $('#create-news-modal').modal('show');
                         });
-                        // document.getElementById("update-news").addEventListener("click", updateNewsPost());
-                        // document.getElementById("delete-news").addEventListener("click", deleteNewsPost());
+                        document.getElementById("update-news").addEventListener("click", function() {
+                            console.log("edit");
+                        });
+                        document.getElementById("delete-news").addEventListener("click", function() {
+                            var posts = document.getElementsByClassName("post");
+                            console.log("adding delete buttons");
+                            // iterate through posts adding delete buttons
+                        });
                     } else {
                         document.getElementById("cms-news").style.display = "none";
                     }
