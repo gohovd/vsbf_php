@@ -21,7 +21,7 @@ if (session_id() == "") {
 <body>
 
     <!-- TODO: Sliding gallery image -->
-    <!-- <img id="landing-image" class="img-fluid" src="./media/landing.png"> -->
+    <img id="landing-image" class="img-fluid" src="./media/landing.png" style="margin-bottom: 15px;">
 
     <script type="text/javascript">
         var loggedin = '<?php if (isset($_SESSION['loggedin'])) { echo $_SESSION['loggedin'];} else { echo 0;} ?>';
@@ -32,15 +32,16 @@ if (session_id() == "") {
         <div class="row">
             <div id="news" class="col-md-8">
 
-                <div id="cms-news" style="display: none;">
-                    <button id="create-news" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Skriv nytt innlegg"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                    <button id="update-news" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Endre ett innlegg"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                    <button id="delete-news" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Slett ett eller flere innlegg"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            <div id="news-cms">
+                <div id="news-advanced-functions" style="display: none;">
+                    <button id="create-news" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Skriv nytt innlegg"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    <button id="update-news" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Endre ett innlegg"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button id="delete-news" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Slett ett eller flere innlegg"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </div>
 
                 <div id="news-functions">
-                    <button id="expand-news" disabled="true" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Utvid alle innlegg"><i class="fa fa-expand" aria-hidden="true"></i></button>
-                    <button id="filter-news" disabled="true" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Filtrer innlegg"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                    <button id="expand-news" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Utvid alle innlegg"><i class="fa fa-expand" aria-hidden="true"></i></button>
+                    <button id="filter-news" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Filtrer innlegg"><i class="fa fa-filter" aria-hidden="true"></i></button>
                 <!--
                     Search
                     Filter
@@ -48,6 +49,7 @@ if (session_id() == "") {
                     .. change sql query based on selection
                 -->
                 </div>
+            </div>
 
                 <script type="text/javascript">
                     $(function () {
@@ -59,7 +61,7 @@ if (session_id() == "") {
                     
                     <!-- get posts from db and display html -->
                     <?php
-                        $query = "SELECT * FROM news";
+                        $query = "SELECT * FROM news ORDER BY date DESC";
                         if ($result = $con -> query($query)) {
                             // Do nothing
                         } else {
@@ -127,7 +129,7 @@ if (session_id() == "") {
                 <!-- display the cms functionality only if logged in -->
                 <script>
                     if (loggedin == true) {
-                        document.getElementById("cms-news").style.display = "block";
+                        document.getElementById("news-advanced-functions").style.display = "block";
                         document.getElementById("create-news").addEventListener("click", function() {
                             var createNewsPostModal = getNewsPostModal();
                             document.body.appendChild(createNewsPostModal);
@@ -137,12 +139,10 @@ if (session_id() == "") {
                             console.log("edit");
                         });
                         document.getElementById("delete-news").addEventListener("click", function() {
-                            var posts = document.getElementsByClassName("post");
-                            console.log("adding delete buttons");
-                            // iterate through posts adding delete buttons
+
                         });
                     } else {
-                        document.getElementById("cms-news").style.display = "none";
+                        document.getElementById("news-advanced-functions").style.display = "none";
                     }
                 </script>
 

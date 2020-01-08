@@ -12,6 +12,7 @@ function getNewsPostModal() {
 
     var modal_content = document.createElement("div");
     modal_content.className = "modal-content";
+    modal_content.id = "modal-box";
 
     var modal_header = document.createElement("div");
     modal_header.className = "modal-header";
@@ -127,4 +128,31 @@ function getCreateNewsForm() {
     // TODO: Form validation
 
     return form;
+}
+
+/**
+ * adds a HTML btn to every post,
+ * adds event listener to every btn,
+ * onclick() remove from DOM
+ */
+function generatePostDeleteButtons() {
+    var posts = document.getElementsByClassName("post");
+    // iterate through posts adding delete buttons
+    for (var i = 0; i < posts.length; i++) {
+        var delBtn = document.createElement("button");
+        delBtn.className = "btn btn-danger";
+        delBtn.setAttribute("data-toggle", "tooltip");
+        delBtn.setAttribute("data-placement", "right");
+        delBtn.setAttribute("title", "Slett inlegg");
+        var icon = document.createElement("i");
+        icon.className = "fa fa-trash";
+        icon.setAttribute("aria-hidden", "true");
+        delBtn.appendChild(icon);
+        posts[i].appendChild(delBtn);
+        
+        // onclick remove from dom, not very DRY
+        posts[i].addEventListener("click", function() {
+            document.getElementById("news-posts").removeChild(posts[i]);
+        });
+    }
 }

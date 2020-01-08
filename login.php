@@ -27,5 +27,3 @@ if (session_id() == "") {
     </div>
 
 </body> 
-
-<?php include('foot.php'); ?>

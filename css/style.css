@@ -1,11 +1,18 @@
 #navigation-bar {
+    position: relative;
     background-color: whitesmoke;
     border-bottom: 1px solid lightgray;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+-moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
 }
+
 .nav {
     position: relative;
     width: 100%;
     padding: 10px 0 10px 0;
+
+
 }
 .nav i {
     color: rgb(68, 85, 140);
@@ -51,44 +58,53 @@ li#Loginlink.nav-link, li#Logoutlink.nav-link {
     padding-top: 10px;
     padding-bottom: 100px;
 }
+/* holds cms buttons, func buttons, and posts */
 #news {
-    padding-top: 10px;
+    padding-top: 20px;
     position: relative;
 }
-#cms-news {
-    display: flex;
-    padding: 10px 0 10px 0;
-    left: 50%;
-    margin: auto;
+#news-cms {
+    padding-bottom: 15px;
+}
+#news-posts {
+    margin-top: 20px;
+    margin-bottom: 350px;
+}
+#news-advanced-functions {
+    position: absolute;
+    left: 15px;
+    top: -5px;
+}
+#news-advanced-functions i {
+    font-size: 1.1em;
+}
+#news-functions i {
+    font-size: 1.1em;
 }
 #news-functions #expand-news {
     position: absolute;
     right: 15px;
-    top: 30px;
+    top: -5px;
 }
 #news-functions #filter-news {
     position: absolute;
-    right: 65px;
-    top: 30px;
+    right: 66px;
+    top: -5px;
 }
-#cms-news button {
-    margin: 0 5px 0 5px;
+#news-advanced-functions button {
+    margin-right: 5px;
     transition: all .5s ease-in-out;
 }
-#cms-news i {
-    font-size: 1.5em;
-}
-
 .post {
     background-color: white;
-    border: 1px solid rgba(68, 85, 140, 0.6);
+    border: 1px solid rgba(68, 85, 140, 0.8);
     color: black;
     /* border-radius: 10px; */
     margin-top: 15px;
     margin-bottom: 35px;
     padding: 22px;
     font-family: Arial, Helvetica, sans-serif;
-    box-shadow: -5px 5px 0px 0px rgba(68, 85, 140, 0.6);
+    box-shadow: -5px 5px 0px 0px rgba(68, 85, 140, 0.8);
 }
 #post-header {
 }
@@ -107,10 +123,10 @@ li#Loginlink.nav-link, li#Logoutlink.nav-link {
     max-height: 5px;
 }
 
-
 body {
     position: relative;
     color: rgb(68, 85, 140);
+    min-height: 100vh;
 }
 
 footer {
@@ -119,7 +135,6 @@ footer {
     border-top: 1px solid lightgray;
     background-color: whitesmoke;
     text-align: center;
-    padding-top: 15px;
     padding-bottom: 15px;
     width: 100%;
 }
