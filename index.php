@@ -5,18 +5,14 @@ if (session_id() == "") {
 ?>
 
 <?php include('./helpers/debug.php'); ?>
-<?php include('./create_db.php'); ?>
+<?php include('./helpers/config.php'); ?>
+<?php include('./helpers/create_db.php'); ?>
 
 <?php $title = 'Home'; ?>
 <?php $currentPage = 'Home'; ?>
 
 <?php include('head.php'); ?>
 <?php include('nav-bar.php'); ?>
-
-<?php include('config.php'); ?>
-
-<!-- js functions to CRUD news -->
-<script type="text/javascript" src="./js/modal-news.js"></script>
 
 <body>
 
@@ -26,6 +22,13 @@ if (session_id() == "") {
     <script type="text/javascript">
         var loggedin = '<?php if (isset($_SESSION['loggedin'])) { echo $_SESSION['loggedin'];} else { echo 0;} ?>';
     </script>
+
+    <?php
+    # include the javascript only if user is logged in and labeled administrator
+        if ( isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == 1) {
+            echo '<script type="text/javascript" src="./js/modal-news.js"></script>';
+        }
+    ?>
 
     <div class="container" id="content">
 
@@ -63,32 +66,36 @@ if (session_id() == "") {
                     <?php
                         $query = "SELECT * FROM news ORDER BY date DESC";
                         if ($result = $con -> query($query)) {
-                            // Do nothing
+                            // nothing..
                         } else {
-                            echo "Error collecting news from db: " . $con->error . "<br>";
+                            error_log("Error collecting news from db: " . $con->error);
                         }
 
                         while ($result_ar = mysqli_fetch_assoc($result)) {
-                            echo "<div class='post'>";
-                                echo "<div id='post-header' class='row'>";
-                                    echo "<div id='title' class='col-md-8'>";
+                            echo "<div class='post' id='" . $result_ar['id'] . "'>";
+                                echo "<div id='post-header' class='row post-header'>";
+                                    echo "<div id='title' class='col-md-12'>";
                                         echo "<h4>" . $result_ar['title'] . "</h4>";
                                     echo "</div>";
-                                    echo "<div id='date' class='col-md-4'>";
-                                        echo "<h6>" . $result_ar['date'] . "</h6>";
+                                    echo "<div id='btn-row' class='post-header-btn-row'>";
                                     echo "</div>";
                                 echo "</div>";
                                 echo "<hr>";
-                                echo "<p>";
+                                echo "<p id='post-content'>";
                                     echo $result_ar['content'];
                                 echo "</p>";
                                 echo "<hr>";
                                 echo "<div id='post-footer' class='row'>";
-                                    echo "<div id='author' class='col-md-8'>";
+                                    echo "<div id='author' class='col-md-6'>";
                                         echo "Skrevet av: " . $result_ar['author'];
                                     echo "</div>";
-                                    echo "<div id='updated-date' class='col-md-4'>";
-                                        echo "<i>" . $result_ar['updated'] . "</i>";
+                                    echo "<div id='updated-date' class='col-md-3'>";
+                                    if ($result_ar['updated'] != null) {
+                                        echo "<i>Endret: " . $result_ar['updated'] . "</i>";
+                                    }
+                                    echo "</div>";
+                                    echo "<div id='date' class='col-md-3'>";
+                                        echo "<i>Dato: " . $result_ar['date'] . "</i>";
                                     echo "</div>";
                                 echo "</div>";
                             echo "</div>";
@@ -97,12 +104,14 @@ if (session_id() == "") {
 
                     <div class="post">
 
-                        <div id="post-header"class="row">
+                        <div id="post-header" class="row">
                             <div id="title" class="col-md-8">
                                 <h4>Oppdatert nettside</h4>
                             </div>
-                            <div id="date" class="col-md-4">
-                                <h6>05-01-2020</h6>
+                            <div id="btn-row" class="col-xs-4">
+                                <button class="btn c-btn"><i class="fa fa-envelope"></i></button>
+                                <button class="btn c-btn"><i class="fa fa-globe"></i></button>
+                                <button class="btn c-btn"><i class="fa fa-phone"></i></button>
                             </div>
                         </div>
 
@@ -115,11 +124,14 @@ if (session_id() == "") {
                         <hr>
 
                         <div id="post-footer" class="row">
-                            <div id="author" class="col-md-8">
-                                Skrevet av: Gøran
+                            <div id="author" class="col-md-4">
+                                <i>Skrevet av: Gøran</i>
                             </div>
                             <div id="updated-date" class="col-md-4">
-                                <i>Sist oppdatert: 05-01-2020</i>
+                                <i>Endret: 2020-01-10 15:55:31</i>
+                            </div>
+                            <div id="date" class="col-md-4">
+                                <i>Dato: 2020-01-10 15:55:31</i>
                             </div>
                         </div>
                     </div>
@@ -130,20 +142,21 @@ if (session_id() == "") {
                 <script>
                     if (loggedin == true) {
                         document.getElementById("news-advanced-functions").style.display = "block";
+
                         document.getElementById("create-news").addEventListener("click", function() {
                             var createNewsPostModal = getNewsPostModal();
                             document.body.appendChild(createNewsPostModal);
                             $('#create-news-modal').modal('show');
                         });
-                        document.getElementById("update-news").addEventListener("click", function() {
-                            console.log("edit");
-                        });
-                        document.getElementById("delete-news").addEventListener("click", function() {
 
-                        });
+                        document.getElementById("update-news").addEventListener("click", generatePostEditButtons);
+                        document.getElementById("delete-news").addEventListener("click", generatePostDeleteButtons);
+
+
                     } else {
                         document.getElementById("news-advanced-functions").style.display = "none";
                     }
+                    
                 </script>
 
             </div>

@@ -13,7 +13,7 @@ if (session_id() == "") {
 
     <div class="login card">
         <h1>Login</h1>
-        <form action="auth.php" method="post">
+        <form action="./helpers/auth.php" method="post">
             <label for="username">
                 <i class="fa fa-user"></i>
             </label>

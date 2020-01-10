@@ -58,6 +58,9 @@ li#Loginlink.nav-link, li#Logoutlink.nav-link {
     padding-top: 10px;
     padding-bottom: 100px;
 }
+#sidebar {
+    margin-bottom: 100px;
+}
 /* holds cms buttons, func buttons, and posts */
 #news {
     padding-top: 20px;
@@ -67,8 +70,9 @@ li#Loginlink.nav-link, li#Logoutlink.nav-link {
     padding-bottom: 15px;
 }
 #news-posts {
+    min-width: 350px;
     margin-top: 20px;
-    margin-bottom: 350px;
+    margin-bottom: 100px;
 }
 #news-advanced-functions {
     position: absolute;
@@ -93,34 +97,59 @@ li#Loginlink.nav-link, li#Logoutlink.nav-link {
 }
 #news-advanced-functions button {
     margin-right: 5px;
-    transition: all .5s ease-in-out;
+    /* transition: all .2s ease-in-out; */
+}
+#btn-row {
+    position: absolute;
+    right: 0px;
+    background-color: white;
+}
+#btn-row > button {
+    margin-left: 10px;
+}
+.c-btn {
+    background-color: transparent;
+    border: 1px solid rgba(68, 85, 140, 0.8);
+    box-shadow: 3px 3px 0px 0px rgba(68, 85, 140, 0.8);
+}
+.c-btn:hover {
+    background-color: lightgray;
 }
 .post {
+    min-width: 350px;
     background-color: white;
     border: 1px solid rgba(68, 85, 140, 0.8);
     color: black;
     /* border-radius: 10px; */
     margin-top: 15px;
     margin-bottom: 35px;
-    padding: 22px;
     font-family: Arial, Helvetica, sans-serif;
     box-shadow: -5px 5px 0px 0px rgba(68, 85, 140, 0.8);
 }
+.post hr {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.post p {
+    padding-left: 20px;
+    padding-right: 20px;
+}
 #post-header {
-}
-#date {
-    text-align: right;
-    
-}
-#updated-date {
-    font-size: 0.8em;
-    text-align: right;
-}
-#author {
-    font-size: 0.8em;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
 }
 #post-footer {
-    max-height: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 5px;
+}
+
+#updated-date, #date {
+    font-size: 0.7em;
+}
+#author {
+    font-size: 0.7em;
 }
 
 body {
@@ -130,12 +159,14 @@ body {
 }
 
 footer {
+    padding-top: 20px;
+    padding-bottom: 30px;
     position: absolute;
     bottom: 0;
     border-top: 1px solid lightgray;
-    background-color: whitesmoke;
+    background-color: rgb(68, 85, 140);
+    color: white;
     text-align: center;
-    padding-bottom: 15px;
     width: 100%;
 }
 
