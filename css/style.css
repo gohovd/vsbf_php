@@ -1,3 +1,29 @@
+#under-construction {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-decoration: underline;
+
+}
+
+#message-container {
+    position: fixed;
+    z-index: 10;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#message p {
+    display: inline-block;
+}
+#message i {
+    display: inline-block;
+}
+
 #navigation-bar {
     position: relative;
     background-color: whitesmoke;
@@ -70,9 +96,16 @@ li#Loginlink.nav-link, li#Logoutlink.nav-link {
     padding-top: 10px;
     padding-bottom: 100px;
 }
-
-#sidebar {
-    margin-bottom: 100px;
+#sidebar div {
+    color: black;
+    text-align: left;
+}
+#sidebar i {
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 42px;
+    min-height: 38px;
+    text-align: center;
 }
 
 /* holds cms buttons, func buttons, and posts */
@@ -127,6 +160,10 @@ li#Loginlink.nav-link, li#Logoutlink.nav-link {
     background-color: white;
 }
 
+button:disabled:hover {
+    background-color: transparent;
+}
+
 #btn-row>button {
     margin-left: 10px;
 }
@@ -145,25 +182,23 @@ li#Loginlink.nav-link, li#Logoutlink.nav-link {
     min-width: 350px;
     background-color: white;
     border: 1px solid rgba(68, 85, 140, 0.8);
+    box-shadow: -5px 5px 0px 0px rgba(68, 85, 140, 0.8);
     color: black;
-    /* border-radius: 10px; */
     margin-top: 15px;
     margin-bottom: 35px;
     font-family: Arial, Helvetica, sans-serif;
-    box-shadow: -5px 5px 0px 0px rgba(68, 85, 140, 0.8);
+
     padding-left: 20px;
     padding-right: 20px;
 }
 
-#post-header {
 
+#post-header {
     padding-top: 15px;
 }
-
 #post-footer {
     padding-bottom: 5px;
 }
-
 #updated-date, #date {
     font-size: 0.7em;
     text-align: right;
@@ -190,7 +225,6 @@ body {
     position: relative;
     color: rgb(68, 85, 140);
     min-height: 100vh;
-    /* background-color: rgba(0,0,0,0.1); */
 }
 
 footer {
@@ -201,7 +235,7 @@ footer {
     border-top: 1px solid lightgray;
     background-color: rgb(68, 85, 140);
     color: white;
-    text-align: center;
+    text-align: left;
     width: 100%;
 }
 

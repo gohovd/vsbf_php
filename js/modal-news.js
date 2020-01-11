@@ -78,7 +78,7 @@ function removeModalsFromDOM() {
     while(modals[0]) {
         modals[0].parentNode.removeChild(modals[0]);
     }
-    removePostEditButtons();
+    tinymce.remove();
 }
 
 function getCreateNewsForm(data) {
@@ -300,9 +300,6 @@ function editPost() {
     var editNewsPostModal = getNewsPostModal(data);
     document.body.appendChild(editNewsPostModal);
     $('#update-news-modal').modal('show');
-    tinymce.init({
-        selector:'#content-text-area'
-    });
     
     var post_html = post.cloneNode(true);
     post_html.removeChild(post_html.children[0]); // header
@@ -311,7 +308,14 @@ function editPost() {
     post_html.removeChild(post_html.children[post_html.children.length-1]); // hr
     post_html.removeChild(post_html.children[post_html.children.length-1]); // footer
     // tinymce.get('content-text-area').setContent(post_html.innerHTML);
-    tinymce.activeEditor.setContent(post_html.innerHTML);
+    tinymce.init({
+        selector:'#content-text-area'
+    });
+    setTimeout(function() {
+        tinymce.activeEditor.setContent(post_html.innerHTML);
+    }, 100);
+    
+
 }
 
 function removePostEditButtons() {
@@ -320,7 +324,7 @@ function removePostEditButtons() {
         editBts[0].removeEventListener("click", editPost);
         editBts[0].parentNode.removeChild(editBts[0]);
     }
-    
+ 
     // Reset event handler
     document.getElementById("update-news").addEventListener("click", generatePostEditButtons);
 }

@@ -15,13 +15,14 @@ if (session_id() == "") {
 <?php include('nav-bar.php'); ?>
 
 <body>
+
+    <?php echo '<div id="message-container"></div>'; ?>
+
     <!-- TODO: Sliding gallery image -->
     <img id="landing-image" class="img-fluid" src="./media/landing.png" style="margin-bottom: 15px;">
 
     <script type="text/javascript">
         var loggedin = '<?php if (isset($_SESSION['loggedin'])) { echo $_SESSION['loggedin'];} else { echo 0;} ?>';
-        var message = '<?php if (isset($_SESSION['message'])) { echo $_SESSION['message'];} else { echo "NA";} ?>';
-        console.log("Message: "+message);
     </script>
 
     <?php
@@ -56,10 +57,32 @@ if (session_id() == "") {
             </div>
 
                 <script type="text/javascript">
-                    $(function () {
-                        // initi tooltips around the globe
+                    $(document).ready(function() {
+                        var message = '<?php if (isset($_SESSION['message'])) { echo $_SESSION['message'];} else { echo "";} ?>';
+                        if (message != "") {
+                            document.getElementById("message-container").appendChild(showMessage("success", message));
+                            setTimeout(function() {
+                                document.getElementById("message").parentNode.removeChild(document.getElementById("message"));
+                            }, 5000);
+                        }
+                        <?php
+                        // remove current message
+                        $_SESSION['message'] = "";
+                        ?>
+
+                        // init tooltips around the globe
                         $('[data-toggle="tooltip"]').tooltip()
-                    })
+
+                        // deactivate edit and delete btns if no posts to edit or delete
+                        if (document.getElementsByClassName("post").length == 1) {
+                            document.getElementById("update-news").disabled = true;
+                            document.getElementById("delete-news").disabled = true;
+                        } else {
+                            document.getElementById("update-news").disabled = false;
+                            document.getElementById("delete-news").disabled = false;
+                        }
+
+                    });
                 </script>
 
                 <div id="news-posts">
@@ -165,11 +188,10 @@ if (session_id() == "") {
             </div>
 
             <div id="sidebar" class="col-md-4">
-                <h3>Informasjon</h3>
-                <ul>
-                    <li>Noe som skjedde</li>
-                    <li>Noe annet som skjedde</li>
-                </ul>
+                <h3>Kontakt</h3>
+                    <div class="contact-detail-text"><i class="c-btn fa fa-home"></i>&nbsp;&nbsp;Møre og Romsdal, 6392 Vikebukt</div><br>
+                    <div class="contact-detail-text"><i class="c-btn fa fa-envelope"></i>&nbsp;&nbsp;kasserer@vikesbf.no</div><br>
+                    <div class="contact-detail-text"><i class="c-btn fa fa-phone"></i>&nbsp;&nbsp;(+47) 924 34 571</div>
             </div>
             
         </div>

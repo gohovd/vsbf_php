@@ -11,9 +11,26 @@ if (session_id() == "") {
 
 <body>
 
+    <?php echo '<div id="message-container"></div>'; ?>
+
     <script type="text/javascript">
         var message = '<?php if (isset($_SESSION['message'])) { echo $_SESSION['message'];} else { echo "NA";} ?>';
         console.log("Message: " + message);
+
+        $(document).ready(function() {
+            var message = '<?php if (isset($_SESSION['message'])) { echo $_SESSION['message'];} else { echo "";} ?>';
+            if (message != "") {
+                document.getElementById("message-container").appendChild(showMessage("warning", message));
+                setTimeout(function() {
+                    document.getElementById("message").parentNode.removeChild(document.getElementById("message"));
+                }, 5000);
+            }
+        });
+        <?php
+        // remove current message
+        $_SESSION['message'] = "";
+        ?>
+
     </script>
 
     <div class="login card">
@@ -22,18 +39,18 @@ if (session_id() == "") {
             <label for="username">
                 <i class="fa fa-user"></i>
             </label>
-            <input type="text" name="username" placeholder="Username" id="username" required>
+            <input type="text" name="username" placeholder="Brukernavn" id="username" required>
             <label for="password">
                 <i class="fa fa-lock"></i>
             </label>
-            <input type="password" name="password" placeholder="Password" id="password" required>
+            <input type="password" name="password" placeholder="Passord" id="password" required>
             <input type="submit" value="Login">
         </form>
         
     </div>
 
     <div style="text-align: center; margin-top: -90px;">
-        Don't have an account? <a href="./register.php">Register</a>.
+        Ingen konto? <a href="./register.php">Registrer deg</a>.
     </div>
 
 </body>

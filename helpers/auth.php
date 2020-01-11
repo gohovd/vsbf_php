@@ -33,13 +33,15 @@ if ($stmt->num_rows > 0) {
 		$_SESSION['loggedin'] = TRUE;
 		$_SESSION['username'] = $_POST['username'];
 		$_SESSION['id'] = $id;
-        $_SESSION['message'] = 'Vellykket innlogging.';
+        $_SESSION['message'] = 'Vellykket innlogging! Velkommen <i>' . ucfirst($_SESSION['username']) . "</i>.";
 		header("Location: /php_web_project/tutorial/");
 	} else {
-		echo 'Incorrect password!';
+		header("Location: /php_web_project/tutorial/login.php");
+		$_SESSION['message'] = 'Feil passord. Prøv igjen.';
 	}
 } else {
-	echo 'Incorrect username!';
+	header("Location: /php_web_project/tutorial/login.php");
+	$_SESSION['message'] = 'Feil brukernavn. Prøv igjen.';
 }
 
 ?>

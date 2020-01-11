@@ -44,7 +44,7 @@ if (session_id() == "") {
                 'url' => '/galleri',
                 'icon' => 'fa fa-picture-o',
                 'function' => '',
-                'restricted' => true
+                'restricted' => false
             ),
             'Logout' => array
             (
