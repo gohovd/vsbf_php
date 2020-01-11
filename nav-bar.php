@@ -2,6 +2,8 @@
 if (session_id() == "") {
     session_start();
 }
+
+// include ('./helpers/debug.php');
 ?>
 
 <div class="container-fluid" id="navigation-bar">
@@ -17,38 +19,83 @@ if (session_id() == "") {
         // Make a list of every possible URL for the site
         $urls = array(
             'Home' => '/',
-            'Cookies' => '/cookies',
+            'Galleri' => '/galleri',
             'Login' => '/login'
         );
 
-        $admin_urls = array(
-            'CMS' => '/cms'
+        $resources = array
+        (
+            'Home' => array
+            (
+                'url' => '/',
+                'icon' => 'fa fa-home',
+                'function' => '',
+                'restricted' => false
+            ),
+            'Login' => array
+            (
+                'url' => '/login',
+                'icon' => 'fa fa-sign-in',
+                'function' => '',
+                'restricted' => false
+            ),
+            'Galleri' => array
+            (
+                'url' => '/galleri',
+                'icon' => 'fa fa-picture-o',
+                'function' => '',
+                'restricted' => true
+            ),
+            'Logout' => array
+            (
+                'url' => '/',
+                'icon' => 'fa fa-sign-out',
+                'function' => 'logout()',
+                'restricted' => false
+            )
         );
 
-        // generate HTML for navigation links
-        // adds active class to current page
-        foreach ($urls as $name => $url) {
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE && $name == 'Login') {
-                // produce logout link if logged in TODO: call session_destroy() when logout button is clicked
-                print '<li id="Logoutlink" class="nav-link" onclick="logout()">
-                <i class="fa fa-sign-out">&nbsp;</i><a href="#">Logout</a></li>';
+        $keys = array_keys($resources);
+        for($i = 0; $i < count($resources); $i++) {
+            $li_opening = '<li id="' . $keys[$i] . 'link" ' . (($currentPage === $keys[$i]) ? 'class="nav-link active" ' : 'class="nav-link"');
+            $li_closing = '</li>';
+            // debug_to_console("Keys: ".$keys[$i]);
+
+            if ($keys[$i] == "Login" && ((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE))) {
                 continue;
-            } else {
-                print '<li id="' . $name . 'link" ' . (($currentPage === $name) ? ' class="nav-link active" ' : ' class="nav-link" ') .
-                    '><a href="' . $baseUrl . $url . '">' . $name . '</a></li>';
+            } else if ($keys[$i] == "Logout" && (!isset($_SESSION['loggedin']))) {
+                continue;
             }
-        }
 
+            if ($resources[$keys[$i]]['restricted'] == true) {
+                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == false) {
+                    continue;
+                }
+                continue;
+            }
+
+            foreach($resources[$keys[$i]] as $key => $value) {
+
+                switch ($key) {
+                    case "url":
+                        // $a_href = ($keys[$i] == "Logout") ? ('<a href="#">' . $keys[$i] . '</a>') : ('<a href="' . $baseUrl . $value . '">' . $keys[$i] . '</a>');
+                        $a_href = '<a href="' . $baseUrl . $value . '">' . $keys[$i] . '</a>';
+                    break;
+                    case "icon":
+                        $icon = '<i class="' . $value . '">&nbsp;</i>';
+                    break;
+                    case "function":
+                        $func = ($value != "") ? ('onclick="' . $value . '">') : ">";
+                    break;
+                }
+                // debug_to_console("K,V: ".$key . " : " . $value);
+                
+            }
+            $nav_link = $li_opening . $func . $icon . $a_href . $li_closing;
+            print $nav_link;
+
+        }
         print '<img class="w3-hide-small" id="navIcon" src="./media/icon.png">';
-
-        // if logged in, produce special links
-        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE) {
-            foreach ($admin_urls as $name => $url) {
-                print '<li ' . (($currentPage === $name) ? ' class="nav-link active" ' : ' class="nav-link" ') .
-                    '><a href="' . $baseUrl . $url . '">' . $name . '</a></li>';
-            }
-        }
-
         ?>
 
         <!-- destroy session and redirect to home -->

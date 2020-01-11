@@ -29,7 +29,7 @@ if (isset($_SESSION)) {
         }
 
         $sql = "INSERT INTO news(title, author, content, date, updated)
-            VALUES ('" . $title . "', '" . $first . "','" . $content . "',now(), NULL)";
+            VALUES ('" . $title . "', '" . ucfirst($_SESSION['username']) . "','" . $content . "',now(), NULL)";
 
         if ($con->query($sql) === TRUE) {
             // nothing...

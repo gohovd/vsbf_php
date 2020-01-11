@@ -15,12 +15,13 @@ if (session_id() == "") {
 <?php include('nav-bar.php'); ?>
 
 <body>
-
     <!-- TODO: Sliding gallery image -->
     <img id="landing-image" class="img-fluid" src="./media/landing.png" style="margin-bottom: 15px;">
 
     <script type="text/javascript">
         var loggedin = '<?php if (isset($_SESSION['loggedin'])) { echo $_SESSION['loggedin'];} else { echo 0;} ?>';
+        var message = '<?php if (isset($_SESSION['message'])) { echo $_SESSION['message'];} else { echo "NA";} ?>';
+        console.log("Message: "+message);
     </script>
 
     <?php
@@ -35,27 +36,28 @@ if (session_id() == "") {
         <div class="row">
             <div id="news" class="col-md-8">
 
-            <div id="news-cms">
-                <div id="news-advanced-functions" style="display: none;">
-                    <button id="create-news" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Skriv nytt innlegg"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                    <button id="update-news" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Endre ett innlegg"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                    <button id="delete-news" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Slett ett eller flere innlegg"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            <div id="news-cms" style="display: none;">
+                <div id="news-advanced-functions"">
+                    <button id="create-news" class="btn c-btn" data-toggle="tooltip" data-placement="bottom" title="Skriv nytt innlegg"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    <button id="update-news" class="btn c-btn" data-toggle="tooltip" data-placement="bottom" title="Endre ett innlegg"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button id="delete-news" class="btn c-btn" data-toggle="tooltip" data-placement="bottom" title="Slett ett eller flere innlegg"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </div>
 
-                <div id="news-functions">
-                    <button id="expand-news" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Utvid alle innlegg"><i class="fa fa-expand" aria-hidden="true"></i></button>
-                    <button id="filter-news" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Filtrer innlegg"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                <!-- <div id="news-functions"> -->
+                    <!-- <button id="expand-news" class="btn c-btn" data-toggle="tooltip" data-placement="top" title="Utvid alle innlegg"><i class="fa fa-expand" aria-hidden="true"></i></button>
+                    <button id="filter-news" class="btn c-btn" data-toggle="tooltip" data-placement="top" title="Filtrer innlegg"><i class="fa fa-filter" aria-hidden="true"></i></button> -->
                 <!--
                     Search
                     Filter
                     Order by
                     .. change sql query based on selection
                 -->
-                </div>
+                <!-- </div> -->
             </div>
 
                 <script type="text/javascript">
                     $(function () {
+                        // initi tooltips around the globe
                         $('[data-toggle="tooltip"]').tooltip()
                     })
                 </script>
@@ -141,12 +143,13 @@ if (session_id() == "") {
                 <!-- display the cms functionality only if logged in -->
                 <script>
                     if (loggedin == true) {
-                        document.getElementById("news-advanced-functions").style.display = "block";
+                        document.getElementById("news-cms").style.display = "block";
 
                         document.getElementById("create-news").addEventListener("click", function() {
                             var createNewsPostModal = getNewsPostModal();
                             document.body.appendChild(createNewsPostModal);
                             $('#create-news-modal').modal('show');
+                            tinymce.init({selector:'#content-text-area'});
                         });
 
                         document.getElementById("update-news").addEventListener("click", generatePostEditButtons);

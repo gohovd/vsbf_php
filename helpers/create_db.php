@@ -2,18 +2,18 @@
 
 <?php
 
-$sql_check_if_exists = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'oasdoheiufsn'";
+$database_name = 'vikesbf';
+$sql_check_if_exists = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '" . $database_name . "'";
 
 $sql_create_database = "CREATE DATABASE IF NOT EXISTS vikesbf";
 
 $sql_create_users_table = "CREATE TABLE IF NOT EXISTS `vikesbf`.`users` (
     `id` INT(255) NOT NULL AUTO_INCREMENT ,
     `username` VARCHAR(120) NOT NULL ,
-    `first` VARCHAR(60) ,
-    `last` VARCHAR(60) ,
     `phone` INT(24) NULL , `email` VARCHAR(120) NULL ,
     `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
     `updated` DATETIME NULL , `digest` VARCHAR(255) NOT NULL ,
+    `activation_code` VARCHAR(50) DEFAULT ``,
     INDEX (username),
     PRIMARY KEY (`id`)) ENGINE = MyISAM;";
 
@@ -52,6 +52,7 @@ if ($con->query($sql_check_if_exists) === TRUE) {
 
 } else {
     // nothing... database exists...
+    error_log($database_name . " exists.");
 }
 
 ?>

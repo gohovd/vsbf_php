@@ -78,6 +78,7 @@ function removeModalsFromDOM() {
     while(modals[0]) {
         modals[0].parentNode.removeChild(modals[0]);
     }
+    removePostEditButtons();
 }
 
 function getCreateNewsForm(data) {
@@ -125,7 +126,8 @@ function getCreateNewsForm(data) {
     
     if (data != undefined) {
         title_input.value = data.title;
-        content_text_area.value = data.content;
+        // content_text_area.value = data.content;
+
         // make hidden input to pass the id of the post
         var post_id = document.createElement("input");
         post_id.setAttribute("type", "hidden");
@@ -277,30 +279,45 @@ function generatePostEditButtons() {
         editBtn.appendChild(icon);
         posts[i].appendChild(editBtn);
 
-        editBtn.addEventListener("click", function() {
-            // Open modal with current content already in place.
-            var post = this.parentElement.parentElement.parentElement;
-            var id = post.id;
-            var title = post.querySelector("#title").innerText;
-            var content = post.querySelector("#post-content").innerText;
-            var data = {
-                id: id,
-                title: title,
-                content: content
-            };
-            var editNewsPostModal = getNewsPostModal(data);
-            document.body.appendChild(editNewsPostModal);
-            $('#update-news-modal').modal('show');
-        });
+        editBtn.addEventListener("click", editPost);
     }
 
     document.getElementById("update-news").removeEventListener("click", generatePostEditButtons);
     document.getElementById("update-news").addEventListener("click", removePostEditButtons);
 }
 
+function editPost() {
+    // Open modal with current content already in place.
+    var post = this.parentElement.parentElement.parentElement;
+    var id = post.id;
+    var title = post.querySelector("#title").innerText;
+    var content = post.querySelector("#post-content").innerText;
+    var data = {
+        id: id,
+        title: title,
+        content: content
+    };
+    var editNewsPostModal = getNewsPostModal(data);
+    document.body.appendChild(editNewsPostModal);
+    $('#update-news-modal').modal('show');
+    tinymce.init({
+        selector:'#content-text-area'
+    });
+    
+    var post_html = post.cloneNode(true);
+    post_html.removeChild(post_html.children[0]); // header
+    post_html.removeChild(post_html.children[0]); // hr
+    post_html.removeChild(post_html.children[0]); // redundant post-content
+    post_html.removeChild(post_html.children[post_html.children.length-1]); // hr
+    post_html.removeChild(post_html.children[post_html.children.length-1]); // footer
+    // tinymce.get('content-text-area').setContent(post_html.innerHTML);
+    tinymce.activeEditor.setContent(post_html.innerHTML);
+}
+
 function removePostEditButtons() {
     var editBts = document.getElementsByClassName("edit-post-btn");
     while(editBts[0]) {
+        editBts[0].removeEventListener("click", editPost);
         editBts[0].parentNode.removeChild(editBts[0]);
     }
     
