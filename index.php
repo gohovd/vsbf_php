@@ -131,7 +131,7 @@ if (session_id() == "") {
 
                         <div id="post-header" class="row">
                             <div id="title" class="col-md-8">
-                                <h4>Oppdatert nettside</h4>
+                                <h4>Oppdatering</h4>
                             </div>
                             <div id="btn-row" class="col-xs-4">
                                 <button class="btn c-btn" disabled><i class="fa fa-pencil"></i></button>

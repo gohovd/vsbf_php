@@ -2,7 +2,6 @@
 if (session_id() == "") {
     session_start();
 }
-
 // include ('./helpers/debug.php');
 ?>
 
@@ -23,7 +22,7 @@ if (session_id() == "") {
         (
             'Home' => array
             (
-                'url' => '/',
+                'url' => '/index',
                 'icon' => 'fa fa-home',
                 'function' => '',
                 'restricted' => false
@@ -77,7 +76,7 @@ if (session_id() == "") {
                 switch ($key) {
                     case "url":
                         // $a_href = ($keys[$i] == "Logout") ? ('<a href="#">' . $keys[$i] . '</a>') : ('<a href="' . $baseUrl . $value . '">' . $keys[$i] . '</a>');
-                        $a_href = '<a href="' . $baseUrl . $value . '">' . $keys[$i] . '</a>';
+                        $a_href = '<a href="' . $baseUrl . $value . '.php">' . $keys[$i] . '</a>';
                     break;
                     case "icon":
                         $icon = '<i class="' . $value . '">&nbsp;</i>';
@@ -108,7 +107,6 @@ if (session_id() == "") {
                     success: function(html) {
                         window.location.replace(<?php echo "'" . $baseUrl . $urls['Home'] . "'" ?>);
                     }
-
                 });
             }
         </script>

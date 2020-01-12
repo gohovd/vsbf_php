@@ -1,5 +1,4 @@
 <?php
-
 if (session_id() == "") {
 	session_start();
 }
@@ -34,6 +33,5 @@ if (isset($_SESSION)) {
 } else {
     error_log("(delete-post) session is not set.");
 }
-flush();
-header("Location: /php_web_project/tutorial/");
+header("Location: " . $baseUrl . "/index.php");
 ?>

@@ -6,6 +6,8 @@ if (session_id() == "") {
 	session_start();
 }
 
+$baseUrl = "https://" . $_SERVER['SERVER_NAME'];
+
 // Now we check if the data was submitted, isset() function will check if the data exists.
 if (!isset($_POST['username'], $_POST['password'], $_POST['email'])) {
 	// Could not get the data that should have been sent.
@@ -47,15 +49,15 @@ if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) 
             $stmt->bind_param('ssss', $_POST['username'], $password, $_POST['email'], $uniqid);
             $stmt->execute();
             // error_log('You have successfully registered, you can now login!');
-            $from    = 'noreply@vikesbf.no';
-            $subject = 'Aktiver Konto ved vikesbf.no';
-            $headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
-            $activate_link = 'http://vikesbf.no/helpers/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
-            $message = '<p>Følg denne linken for å aktivere konto: <a href="' . $activate_link . '">' . $activate_link . '</a></p>';
-            mail($_POST['email'], $subject, $message, $headers);
-            echo 'Please check your email to activate your account!';
+            // $from    = 'noreply@vikesbf.no';
+            // $subject = 'Aktiver Konto ved vikesbf.no';
+            // $headers = 'From: ' . $from . "\r\n" . 'Reply-To: ' . $from . "\r\n" . 'X-Mailer: PHP/' . phpversion() . "\r\n" . 'MIME-Version: 1.0' . "\r\n" . 'Content-Type: text/html; charset=UTF-8' . "\r\n";
+            // $activate_link = 'http://vikesbf.no/helpers/activate.php?email=' . $_POST['email'] . '&code=' . $uniqid;
+            // $message = '<p>Følg denne linken for å aktivere konto: <a href="' . $activate_link . '">' . $activate_link . '</a></p>';
+            // mail($_POST['email'], $subject, $message, $headers);
+            // echo 'Please check your email to activate your account!';
             $_SESSION['message'] = 'Vellykket registrering, du kan nå logge inn!';
-            header("Location: /php_web_project/tutorial/login.php");
+            header("Location: " . $baseUrl . "/login.php");
             $stmt->close();
         } else {
             // Something is wrong with the sql statement, check to make sure accounts table exists with all 3 fields.

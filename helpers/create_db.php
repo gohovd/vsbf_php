@@ -12,14 +12,17 @@ $sql_create_users_table = "CREATE TABLE IF NOT EXISTS `vikesbf`.`users` (
     `username` VARCHAR(120) NOT NULL ,
     `phone` INT(24) NULL , `email` VARCHAR(120) NULL ,
     `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
-    `updated` DATETIME NULL , `digest` VARCHAR(255) NOT NULL ,
+    `updated` DATETIME NULL , `password` VARCHAR(255) NOT NULL ,
     `activation_code` VARCHAR(50) DEFAULT '',
     INDEX (username),
     PRIMARY KEY (`id`)) ENGINE = MyISAM;";
 
 $sql_create_news_table = "CREATE TABLE IF NOT EXISTS `vikesbf`.`news` (
-    `id` INT(255) NOT NULL AUTO_INCREMENT ,`author` VARCHAR(120) NULL ,
-    `content` TEXT NOT NULL , `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+    `id` INT(255) NOT NULL AUTO_INCREMENT ,
+    `author` VARCHAR(120) NULL ,
+    `title` VARCHAR(60) NOT NULL,
+    `content` TEXT NOT NULL ,
+    `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
     `updated` DATETIME NULL ,
     INDEX (author),
     PRIMARY KEY (`id`)) ENGINE = MyISAM;";

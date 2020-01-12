@@ -3,7 +3,7 @@
 include('./debug.php');
 require('./config.php');
 
-$baseUrl = "/php_web_project/tutorial";
+$baseUrl = "https://" . $_SERVER['SERVER_NAME'];
 
 if (session_id() == "") {
 	session_start();

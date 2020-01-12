@@ -1,10 +1,9 @@
-<?php require('./config.php'); ?>
-
 <?php
-
 if (session_id() == "") {
     session_start();
 }
+
+require('./config.php'); 
 
 if (isset($_SESSION)) {
     if (isset($_POST['content']) && isset($_POST['title'])) {
@@ -26,6 +25,6 @@ if (isset($_SESSION)) {
 } else {
     error_log("Session is not set");
 }
-header("Location: /php_web_project/tutorial/");
+header("Location: " . $baseUrl . "/index.php");
 
 ?>
