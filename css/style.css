@@ -1,13 +1,24 @@
-#under-construction {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.under-construction {
+    margin-left: 50px;
+    margin-top: 50px;
+    padding-left: 15px;
     font-size: 3em;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    text-decoration: underline;
+    text-align: left;
+    border-left: 10px solid white;
+}
 
+.under-construction i {
+    font-size: 2.3em;
+    padding: 10px;
+    width: 118px;
+    height: auto;
+    color: white;
+}
+
+.under-construction i:hover {
+    color: lightgray;
 }
 
 #message-container {
@@ -117,12 +128,6 @@ li#Loginlink.nav-link, li#Logoutlink.nav-link {
 #news-cms {
     padding-bottom: 40px;
 }
-
-#news-posts {
-    min-width: 350px;
-    margin-bottom: 100px;
-}
-
 #news-advanced-functions {
     position: absolute;
     left: 15px;
@@ -179,7 +184,6 @@ button:disabled:hover {
 }
 
 .post {
-    min-width: 350px;
     background-color: white;
     border: 1px solid rgba(68, 85, 140, 0.8);
     box-shadow: -5px 5px 0px 0px rgba(68, 85, 140, 0.8);
@@ -199,16 +203,17 @@ button:disabled:hover {
 #post-footer {
     padding-bottom: 5px;
 }
-#updated-date, #date {
-    font-size: 0.7em;
+#updated-date {
+    font-size: 0.9em;
     text-align: right;
-    color: gray;
 }
-
+#date {
+    font-size: 0.9em;
+    text-align: right;
+}
 #author {
-    font-size: 0.7em;
+    font-size: 0.9em;
     text-align: left;
-    color: gray;
 }
 
 .modal {
@@ -232,11 +237,10 @@ footer {
     padding-bottom: 30px;
     position: absolute;
     bottom: 0;
-    border-top: 1px solid lightgray;
     background-color: rgb(68, 85, 140);
     color: white;
     text-align: left;
-    width: 100%;
+    width: 100vw;
 }
 
 div#cookie-chooser.container {

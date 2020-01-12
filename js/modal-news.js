@@ -259,7 +259,6 @@ function deleteAllWithConfirm() {
                 }
             });
     } else {
-        console.log("Avbrutt.");
         return false;
     }
 }

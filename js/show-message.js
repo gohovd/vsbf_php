@@ -1,5 +1,4 @@
 function showMessage(type, text) {
-    console.log("Message: " + text);
     var message = document.createElement("div");
         message.id = "message";
         message.setAttribute("role", "alert");

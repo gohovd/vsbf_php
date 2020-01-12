@@ -6,8 +6,8 @@ if (session_id() == "") {
 <?php $title = 'Login'; ?>
 <?php $currentPage = 'Login'; ?>
 
-<?php include('head.php'); ?>
-<?php include('nav-bar.php'); ?>
+<?php include('./head.php'); ?>
+<?php include('./nav-bar.php'); ?>
 
 <body>
 
@@ -15,7 +15,6 @@ if (session_id() == "") {
 
     <script type="text/javascript">
         var message = '<?php if (isset($_SESSION['message'])) { echo $_SESSION['message'];} else { echo "NA";} ?>';
-        console.log("Message: " + message);
 
         $(document).ready(function() {
             var message = '<?php if (isset($_SESSION['message'])) { echo $_SESSION['message'];} else { echo "";} ?>';

@@ -1,8 +1,9 @@
 <?php
 
 include('./debug.php');
-
 require('./config.php');
+
+$baseUrl = "/php_web_project/tutorial";
 
 if (session_id() == "") {
 	session_start();
@@ -28,19 +29,36 @@ if ($stmt->num_rows > 0) {
 	$stmt->fetch();
 
 	if (password_verify($_POST['password'], $password)) {
-		// Create sessions so we know the user is logged in, they basically act like cookies but remember the data on the server.
 		session_regenerate_id();
 		$_SESSION['loggedin'] = TRUE;
 		$_SESSION['username'] = $_POST['username'];
 		$_SESSION['id'] = $id;
+
+		// check if admin
+		if ($st = $con->prepare('SELECT formann FROM users WHERE username = ?')) {
+			$st->bind_param('s', $_SESSION['username']);
+			$st->execute();
+			$st->store_result();
+		}
+		if ($st->num_rows > 0){
+			$st->bind_result($admin);
+			$st->fetch();
+			error_log("Value of formann var: " . $admin);
+			if($admin == 88) {
+				$_SESSION['formann'] = true;
+			}
+		} else {
+			error_log("Error evaluating formann: " . $con->error);
+		}
+
         $_SESSION['message'] = 'Vellykket innlogging! Velkommen <i>' . ucfirst($_SESSION['username']) . "</i>.";
-		header("Location: /php_web_project/tutorial/");
+		header("Location: " . $baseUrl);
 	} else {
-		header("Location: /php_web_project/tutorial/login.php");
+		header("Location: " . $baseUrl . "/login.php");
 		$_SESSION['message'] = 'Feil passord. Prøv igjen.';
 	}
 } else {
-	header("Location: /php_web_project/tutorial/login.php");
+	header("Location: " . $baseUrl . "/login.php");
 	$_SESSION['message'] = 'Feil brukernavn. Prøv igjen.';
 }
 

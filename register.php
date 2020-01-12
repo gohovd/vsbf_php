@@ -7,8 +7,8 @@ if (session_id() == "") {
 <?php $title = 'Register'; ?>
 <?php $currentPage = 'Register'; ?>
 
-<?php include('head.php'); ?>
-<?php include('nav-bar.php'); ?>
+<?php include('./head.php'); ?>
+<?php include('./nav-bar.php'); ?>
 
 <body>
 	<div class="register">

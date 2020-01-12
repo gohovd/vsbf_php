@@ -6,8 +6,8 @@ if (session_id() == "") {
 <?php $title = 'Cookies'; ?>
 <?php $currentPage = 'Cookies'; ?>
 
-<?php include('head.php'); ?>
-<?php include('nav-bar.php'); ?>
+<?php include('./head.php'); ?>
+<?php include('./nav-bar.php'); ?>
 
 <body>
 

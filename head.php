@@ -24,4 +24,6 @@
 
       <script src="./js/show-message.js"></script>
 
+      <?php $baseUrl = "/php_web_project/tutorial"; ?>
+
 </head>

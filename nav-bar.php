@@ -11,10 +11,6 @@ if (session_id() == "") {
     <ul class="nav">
 
         <?php
-
-        // Wamp add VirtualHost to get rid of this
-        $baseUrl = '/php_web_project/tutorial';
-
         // Todo: Add icons
         // Make a list of every possible URL for the site
         $urls = array(
@@ -62,16 +58,18 @@ if (session_id() == "") {
             // debug_to_console("Keys: ".$keys[$i]);
 
             if ($keys[$i] == "Login" && ((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE))) {
-                continue;
+                continue; // if logged in, do not produce login link
             } else if ($keys[$i] == "Logout" && (!isset($_SESSION['loggedin']))) {
-                continue;
+                continue; // if logged out, do not produce logout link
             }
 
+            // only produce link to restricted resource if user is admin
             if ($resources[$keys[$i]]['restricted'] == true) {
-                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == false) {
+
+
+                if (!isset($_SESSION['formann'])) {
                     continue;
                 }
-                continue;
             }
 
             foreach($resources[$keys[$i]] as $key => $value) {

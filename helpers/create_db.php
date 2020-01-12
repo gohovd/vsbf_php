@@ -13,7 +13,7 @@ $sql_create_users_table = "CREATE TABLE IF NOT EXISTS `vikesbf`.`users` (
     `phone` INT(24) NULL , `email` VARCHAR(120) NULL ,
     `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
     `updated` DATETIME NULL , `digest` VARCHAR(255) NOT NULL ,
-    `activation_code` VARCHAR(50) DEFAULT ``,
+    `activation_code` VARCHAR(50) DEFAULT '',
     INDEX (username),
     PRIMARY KEY (`id`)) ENGINE = MyISAM;";
 
@@ -52,7 +52,6 @@ if ($con->query($sql_check_if_exists) === TRUE) {
 
 } else {
     // nothing... database exists...
-    error_log($database_name . " exists.");
 }
 
 ?>

@@ -6,13 +6,12 @@ if (session_id() == "") {
 
 <?php include('./helpers/debug.php'); ?>
 <?php include('./helpers/config.php'); ?>
-<?php include('./helpers/create_db.php'); ?>
 
 <?php $title = 'Home'; ?>
 <?php $currentPage = 'Home'; ?>
 
-<?php include('head.php'); ?>
-<?php include('nav-bar.php'); ?>
+<?php include('./head.php'); ?>
+<?php include('./nav-bar.php'); ?>
 
 <body>
 
@@ -23,11 +22,12 @@ if (session_id() == "") {
 
     <script type="text/javascript">
         var loggedin = '<?php if (isset($_SESSION['loggedin'])) { echo $_SESSION['loggedin'];} else { echo 0;} ?>';
+        var a = '<?php if (isset($_SESSION['formann'])) { echo $_SESSION['formann'];} else { echo 0;} ?>';
     </script>
 
     <?php
     # include the javascript only if user is logged in and labeled administrator
-        if ( isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == 1) {
+        if ( isset($_SESSION['loggedin']) && ($_SESSION['loggedin'] == 1) && isset($_SESSION['formann'])) {
             echo '<script type="text/javascript" src="./js/modal-news.js"></script>';
         }
     ?>
@@ -74,7 +74,7 @@ if (session_id() == "") {
                         $('[data-toggle="tooltip"]').tooltip()
 
                         // deactivate edit and delete btns if no posts to edit or delete
-                        if (document.getElementsByClassName("post").length == 1) {
+                        if (document.getElementsByClassName("post").length < 2) {
                             document.getElementById("update-news").disabled = true;
                             document.getElementById("delete-news").disabled = true;
                         } else {
@@ -111,15 +111,15 @@ if (session_id() == "") {
                                 echo "</p>";
                                 echo "<hr>";
                                 echo "<div id='post-footer' class='row'>";
-                                    echo "<div id='author' class='col-md-6'>";
-                                        echo "Skrevet av: " . $result_ar['author'];
+                                    echo "<div id='author' class='col-md-4'>";
+                                        echo "<i>Skrevet av: " . $result_ar['author'] . "</i>";
                                     echo "</div>";
-                                    echo "<div id='updated-date' class='col-md-3'>";
+                                    echo "<div id='updated-date' class='col-md-4'>";
                                     if ($result_ar['updated'] != null) {
                                         echo "<i>Endret: " . $result_ar['updated'] . "</i>";
                                     }
                                     echo "</div>";
-                                    echo "<div id='date' class='col-md-3'>";
+                                    echo "<div id='date' class='col-md-4'>";
                                         echo "<i>Dato: " . $result_ar['date'] . "</i>";
                                     echo "</div>";
                                 echo "</div>";
@@ -127,45 +127,71 @@ if (session_id() == "") {
                         }
                     ?>
 
-                    <div class="post">
+                    <div class="post"  style="font-size: 0.9em;">
 
                         <div id="post-header" class="row">
                             <div id="title" class="col-md-8">
                                 <h4>Oppdatert nettside</h4>
                             </div>
                             <div id="btn-row" class="col-xs-4">
-                                <button class="btn c-btn"><i class="fa fa-envelope"></i></button>
-                                <button class="btn c-btn"><i class="fa fa-globe"></i></button>
-                                <button class="btn c-btn"><i class="fa fa-phone"></i></button>
+                                <button class="btn c-btn" disabled><i class="fa fa-pencil"></i></button>
+                                <button class="btn c-btn" disabled><i class="fa fa-trash"></i></button>
                             </div>
                         </div>
 
                         <hr>
 
                         <p>
-                            Vike SBF oppdatert 2020 med ny funksjonalitet.
+                            Vike SBF har blitt oppdatert med ny funksjonalitet. Det er no mogleg å skrive innlegg som ein legg ut her på framsida.
+                            Dette gjer ein ved å trykke på <button class="btn c-btn"><i class="fa fa-plus"></i></button>&nbsp;&nbsp;
+                            knappen nærme toppen av sida.<br><br>
+                            Følgjeleg, ynskjer ein å endre på innlegget: trykk ein gong på denne knappen nærme toppen av sida
+                            <button class="btn c-btn"><i class="fa fa-pencil"></i></button>&nbsp;&nbsp;og så på tilsvarande knapp
+                            <button class="btn c-btn"><i class="fa fa-pencil"></i></button>&nbsp;&nbsp; som dukkar opp på sida av innlegget.
+                            <p style="padding-left: 25px; color: gray;">
+                                (I høgre hjørne av dette innlegget ser du to knappar.
+                                Desse er deaktiverte, og fungerar som eksempel på kor dei ser ut.)
+                            </p>
+                            
+                            For å slette innlegg <button class="btn c-btn"><i class="fa fa-trash"></i></button>&nbsp;&nbsp; trykk
+                            knappen med bilete av ei avfalls-bytte nærme toppen av sida. Det dukker så opp to knappar:
+                            <ul id="btnlist">
+                                <li><button class="btn btn-danger"><i class="fa fa-globe"></i></button>&nbsp;&nbsp;
+                                kan finnast til høgre for knappen du nyst trykte. Trykk på denne knappen leier til at ein sletter
+                            alle innlegg, men ikkje før ein har trykt "Ja" i ein dialog-boks som sprett opp.</li>
+                                <li><button class="btn c-btn"><i class="fa fa-trash"></i></button>&nbsp;&nbsp;
+                                dukkar opp i høgre hjørne av alle innlegg, trykk på denne sletter eit inlegg av gongen.
+                            </ul>
                         </p>
+
+                        <style>
+                            #btnlist li {
+                                margin-bottom: 5px;
+                            }
+                        </style>
 
                         <hr>
 
                         <div id="post-footer" class="row">
+
                             <div id="author" class="col-md-4">
-                                <i>Skrevet av: Gøran</i>
+                                
                             </div>
                             <div id="updated-date" class="col-md-4">
-                                <i>Endret: 2020-01-10 15:55:31</i>
+                                
                             </div>
                             <div id="date" class="col-md-4">
-                                <i>Dato: 2020-01-10 15:55:31</i>
+                                <i>Dato: 2020-01-10</i>
                             </div>
                         </div>
+
                     </div>
 
                 </div>
 
                 <!-- display the cms functionality only if logged in -->
                 <script>
-                    if (loggedin == true) {
+                    if (loggedin == true && a == true) {
                         document.getElementById("news-cms").style.display = "block";
 
                         document.getElementById("create-news").addEventListener("click", function() {
@@ -189,9 +215,9 @@ if (session_id() == "") {
 
             <div id="sidebar" class="col-md-4">
                 <h3>Kontakt</h3>
-                    <div class="contact-detail-text"><i class="c-btn fa fa-home"></i>&nbsp;&nbsp;Møre og Romsdal, 6392 Vikebukt</div><br>
-                    <div class="contact-detail-text"><i class="c-btn fa fa-envelope"></i>&nbsp;&nbsp;kasserer@vikesbf.no</div><br>
-                    <div class="contact-detail-text"><i class="c-btn fa fa-phone"></i>&nbsp;&nbsp;(+47) 924 34 571</div>
+                    <div class="contact-detail-text"><i class="fa fa-home"></i>&nbsp;&nbsp;Møre og Romsdal, 6392 Vikebukt</div><br>
+                    <div class="contact-detail-text"><i class="fa fa-envelope"></i>&nbsp;&nbsp;kasserer@vikesbf.no</div><br>
+                    <div class="contact-detail-text"><i class="fa fa-phone"></i>&nbsp;&nbsp;(+47) 924 34 571</div>
             </div>
             
         </div>
@@ -199,4 +225,4 @@ if (session_id() == "") {
 
 </body>
 
-<?php include('foot.php'); ?>
+<?php include('./foot.php'); ?>
