@@ -10,33 +10,25 @@ if (session_id() == "") {
     <ul class="nav">
 
         <?php
-        // Todo: Add icons
-        // Make a list of every possible URL for the site
-        $urls = array(
-            'Home' => '/',
-            'Galleri' => '/galleri',
-            'Login' => '/login'
-        );
-
         $resources = array
         (
-            'Home' => array
+            'Hjem' => array
             (
-                'url' => '/index',
+                'url' => '/index.php',
                 'icon' => 'fa fa-home',
                 'function' => '',
                 'restricted' => false
             ),
             'Login' => array
             (
-                'url' => '/login',
+                'url' => '/login.php',
                 'icon' => 'fa fa-sign-in',
                 'function' => '',
                 'restricted' => false
             ),
             'Galleri' => array
             (
-                'url' => '/galleri',
+                'url' => '/galleri.php',
                 'icon' => 'fa fa-picture-o',
                 'function' => '',
                 'restricted' => false
@@ -64,8 +56,6 @@ if (session_id() == "") {
 
             // only produce link to restricted resource if user is admin
             if ($resources[$keys[$i]]['restricted'] == true) {
-
-
                 if (!isset($_SESSION['formann'])) {
                     continue;
                 }
@@ -76,7 +66,7 @@ if (session_id() == "") {
                 switch ($key) {
                     case "url":
                         // $a_href = ($keys[$i] == "Logout") ? ('<a href="#">' . $keys[$i] . '</a>') : ('<a href="' . $baseUrl . $value . '">' . $keys[$i] . '</a>');
-                        $a_href = '<a href="' . $baseUrl . $value . '.php">' . $keys[$i] . '</a>';
+                        $a_href = '<a href="' . $baseUrl . $value . '">' . $keys[$i] . '</a>';
                     break;
                     case "icon":
                         $icon = '<i class="' . $value . '">&nbsp;</i>';
@@ -105,13 +95,11 @@ if (session_id() == "") {
                         action: 'logout'
                     },
                     success: function(html) {
-                        window.location.replace(<?php echo "'" . $baseUrl . $urls['Home'] . "'" ?>);
+                        // do nothing..
                     }
                 });
             }
         </script>
-
-
 
     </ul>
 </div>

@@ -32,23 +32,33 @@ if (session_id() == "") {
 
     </script>
 
-    <div class="login card">
-        <h1>Login</h1>
+    <div class="container login">
+        <h3>Logg inn</h3>
         <form action="./helpers/auth.php" method="post">
-            <label for="username">
-                <i class="fa fa-user"></i>
-            </label>
-            <input type="text" name="username" placeholder="Brukernavn" id="username" required>
-            <label for="password">
-                <i class="fa fa-lock"></i>
-            </label>
-            <input type="password" name="password" placeholder="Passord" id="password" required>
-            <input type="submit" value="Login">
+
+            <label class="sr-only" for="username">Username</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user"></i></div>
+                </div>
+                <input type="text" class="form-control" name="username" placeholder="Brukernavn" id="username" required>
+            </div>
+
+            <label class="sr-only" for="password">Passord</label>
+            <div class="input-group mb-2 mr-sm-2">
+                <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                </div>
+                <input type="password" class="form-control" name="password" placeholder="Passord" id="password" required>
+            </div>
+
+            <input type="submit" class="btn" value="Login">
+
         </form>
         
     </div>
 
-    <div style="text-align: center; margin-top: -90px;">
+    <div style="text-align: center;">
         Ingen konto? <a href="./register.php">Registrer deg</a>.
     </div>
 

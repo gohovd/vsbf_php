@@ -7,8 +7,8 @@ if (session_id() == "") {
 <?php include('./helpers/debug.php'); ?>
 <?php include('./helpers/config.php'); ?>
 
-<?php $title = 'Home'; ?>
-<?php $currentPage = 'Home'; ?>
+<?php $title = 'Hjem'; ?>
+<?php $currentPage = 'Hjem'; ?>
 
 <?php include('./head.php'); ?>
 <?php include('./nav-bar.php'); ?>
@@ -160,7 +160,7 @@ if (session_id() == "") {
                                 kan finnast til høgre for knappen du nyst trykte. Trykk på denne knappen leier til at ein sletter
                             alle innlegg, men ikkje før ein har trykt "Ja" i ein dialog-boks som sprett opp.</li>
                                 <li><button class="btn c-btn"><i class="fa fa-trash"></i></button>&nbsp;&nbsp;
-                                dukkar opp i høgre hjørne av alle innlegg, trykk på denne sletter eit inlegg av gongen.
+                                dukkar opp i høgre hjørne av alle innlegg, trykk på denne sletter berre eitt inlegg av gongen.
                             </ul>
                         </p>
 
@@ -222,9 +222,13 @@ if (session_id() == "") {
                     <div class="contact-detail-text">
                         <i class="fa fa-phone"></i>&nbsp;&nbsp;(+47) 924 34 571</div>
                     <div class="contact-detail-text">
-                        <i class="fa fa-facebook-official" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/groups/81632657018/">Facebook gruppe</a></div>
+                        <i class="fa fa-facebook-official" aria-hidden="true"></i>&nbsp;
+                        <a href="https://www.facebook.com/groups/81632657018/">Facebook gruppe</a></div><br>
+                    
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1835.4272897020628!2d7.137452816050022!3d62.61109948292489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4616ab12ed98ab27%3A0xdec8b461e7acbc20!2zVmlrZSBTbcOlYsOldGZvcmVuaW5n!5e0!3m2!1sen!2snl!4v1578869888889!5m2!1sen!2snl"
+                    width="100%" height="320" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
-            
+
         </div>
     </div>
 

@@ -49,7 +49,7 @@ function getNewsPostModal(data) {
     var close_btn = document.createElement("button");
     close_btn.className = "btn btn-secondary";
     close_btn.setAttribute("data-dismiss", "modal");
-    close_btn.innerText = "Close";
+    close_btn.innerText = "Lukk";
 
     // put it together
     modal.appendChild(modal_dialog);
@@ -146,6 +146,7 @@ function getCreateNewsForm(data) {
     file_input.type = "file";
     file_input.className = "form-control-file";
     file_input.id = "file-input";
+    file_input.disabled = true;
 
     // put it together
     form.appendChild(title_form_group);
