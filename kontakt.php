@@ -1,15 +1,13 @@
 <?php
-
 if (session_id() == "") {
-	session_start();
+    session_start();
 }
-
-$title = 'Galleri';
-$currentPage = 'Galleri';
-
-include("./head.php");
-include('./nav-bar.php');
 ?>
+<?php $title = 'Kontakt'; ?>
+<?php $currentPage = 'Kontakt'; ?>
+
+<?php include('./head.php'); ?>
+<?php include('./nav-bar.php'); ?>
 
 <body>
 	<div class="under-construction">

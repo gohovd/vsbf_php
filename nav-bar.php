@@ -39,6 +39,13 @@ if (session_id() == "") {
                 'icon' => 'fa fa-sign-out',
                 'function' => 'logout()',
                 'restricted' => false
+            ),
+            'Kontakt' => array
+            (
+                'url' => '/kontakt.php',
+                'icon' => 'fa fa-address-card-o',
+                'function' => '',
+                'restricted' => false
             )
         );
 
