@@ -6,8 +6,6 @@ if (session_id() == "") {
 	session_start();
 }
 
-$baseUrl = "https://" . $_SERVER['SERVER_NAME'];
-
 // Now we check if the data was submitted, isset() function will check if the data exists.
 if (!isset($_POST['username'], $_POST['password'], $_POST['email'])) {
 	// Could not get the data that should have been sent.

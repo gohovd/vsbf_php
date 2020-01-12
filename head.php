@@ -24,6 +24,5 @@
 
       <script src="./js/show-message.js"></script>
 
-      <?php $baseUrl = "https://" . $_SERVER['SERVER_NAME']; ?>
-
+      <?php $baseUrl = "/php_web_project/tutorial"; ?>
 </head>

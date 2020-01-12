@@ -3,8 +3,6 @@
 include('./debug.php');
 require('./config.php');
 
-$baseUrl = "https://" . $_SERVER['SERVER_NAME'];
-
 if (session_id() == "") {
 	session_start();
 }

@@ -4,11 +4,11 @@ if (session_id() == "") {
 	session_start();
 }
 
-include("./head.php");
-include('./nav-bar.php');
-
 $title = 'Galleri';
 $currentPage = 'Galleri';
+
+include("./head.php");
+include('./nav-bar.php');
 
 echo '<div class="under-construction">
 <p>

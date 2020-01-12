@@ -215,9 +215,14 @@ if (session_id() == "") {
 
             <div id="sidebar" class="col-md-4">
                 <h3>Kontakt</h3>
-                    <div class="contact-detail-text"><i class="fa fa-home"></i>&nbsp;&nbsp;Møre og Romsdal, 6392 Vikebukt</div><br>
-                    <div class="contact-detail-text"><i class="fa fa-envelope"></i>&nbsp;&nbsp;kasserer@vikesbf.no</div><br>
-                    <div class="contact-detail-text"><i class="fa fa-phone"></i>&nbsp;&nbsp;(+47) 924 34 571</div>
+                    <div class="contact-detail-text">
+                        <i class="fa fa-home"></i>&nbsp;&nbsp;Møre og Romsdal, 6392 Vikebukt</div>
+                    <div class="contact-detail-text">
+                        <i class="fa fa-envelope"></i>&nbsp;&nbsp;kasserer@vikesbf.no</div>
+                    <div class="contact-detail-text">
+                        <i class="fa fa-phone"></i>&nbsp;&nbsp;(+47) 924 34 571</div>
+                    <div class="contact-detail-text">
+                        <i class="fa fa-facebook-official" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/groups/81632657018/">Facebook gruppe</a></div>
             </div>
             
         </div>
