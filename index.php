@@ -197,6 +197,7 @@ if (session_id() == "") {
                         document.getElementById("create-news").addEventListener("click", function() {
                             var createNewsPostModal = getNewsPostModal();
                             document.body.appendChild(createNewsPostModal);
+                            $('#create-news-modal').modal({backdrop: 'static', keyboard: false});
                             $('#create-news-modal').modal('show');
                             tinymce.init({selector:'#content-text-area'});
                         });
