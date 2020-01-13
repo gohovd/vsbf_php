@@ -40,7 +40,7 @@ if (session_id() == "") {
 				<input type="text" class="form-control" name="username" placeholder="Epost" id="email" required>
 			</div>
 
-			<input type="submit" class="btn" value="Registrer">
+			<input type="submit" class="btn btn-primary" value="Registrer">
 
 		</form>
 

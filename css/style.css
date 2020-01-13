@@ -225,7 +225,7 @@ button:disabled:hover {
 }
 
 .modal {
-    width: 100%;
+    /* max-width: 98vw; */
 }
 .modal-dialog {
     max-width: 100%;
@@ -290,4 +290,8 @@ div#cookie-chooser.container {
 }
 .register i {
     width: 20px;
+}
+.tox {
+    max-width: 90vw;
+    max-height: 90vh;
 }

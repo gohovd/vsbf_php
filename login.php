@@ -52,7 +52,7 @@ if (session_id() == "") {
                 <input type="password" class="form-control" name="password" placeholder="Passord" id="password" required>
             </div>
 
-            <input type="submit" class="btn" value="Login">
+            <input type="submit" class="btn btn-primary" value="Login">
 
         </form>
         

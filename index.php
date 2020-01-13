@@ -199,7 +199,10 @@ if (session_id() == "") {
                             document.body.appendChild(createNewsPostModal);
                             $('#create-news-modal').modal({backdrop: 'static', keyboard: false});
                             $('#create-news-modal').modal('show');
-                            tinymce.init({selector:'#content-text-area'});
+                            tinymce.init({
+                                selector:'#content-text-area',
+                                plugins: "code,pagebreak,fullpage,table,fullscreen,paste,spellchecker",
+                            });
                         });
 
                         document.getElementById("update-news").addEventListener("click", generatePostEditButtons);
