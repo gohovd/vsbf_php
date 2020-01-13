@@ -10,6 +10,7 @@ if (isset($_SESSION)) {
 
         // TODO: Text processing. Line changes, etc.. Bold, italic.
         $content =  mysqli_real_escape_string($con, $_POST['content']);
+        $content = str_replace("<p>&nbsp;</p>", "", $content);
         $updated = date('Y-m-d H:i:s');
         $title =  mysqli_real_escape_string($con, $_POST['title']);
         $id = mysqli_real_escape_string($con, $_POST['id']);

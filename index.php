@@ -29,6 +29,11 @@ if (session_id() == "") {
     # include the javascript only if user is logged in and labeled administrator
         if ( isset($_SESSION['loggedin']) && ($_SESSION['loggedin'] == 1) && isset($_SESSION['formann'])) {
             echo '<script type="text/javascript" src="./js/modal-news.js"></script>';
+            echo '<script type="text/javascript">';
+                echo '$(document).ready(function() {';
+                    echo 'document.getElementById("tutorial-post").style.display = "block";';
+                echo '});';
+            echo '</script>';
         }
     ?>
 
@@ -127,7 +132,7 @@ if (session_id() == "") {
                         }
                     ?>
 
-                    <div class="post"  style="font-size: 0.9em;">
+                    <div id="tutorial-post" class="post"  style="font-size: 0.9em; display: none;">
 
                         <div id="post-header" class="row">
                             <div id="title" class="col-md-8">

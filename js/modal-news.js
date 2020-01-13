@@ -314,8 +314,6 @@ function editPost() {
     setTimeout(function() {
         tinymce.activeEditor.setContent(post_html.innerHTML);
     }, 100);
-    
-
 }
 
 function removePostEditButtons() {
