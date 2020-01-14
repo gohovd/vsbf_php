@@ -36,7 +36,7 @@ if (session_id() == "") {
 					color: black;
 				}
 			</style>
-			<div class="col-md-8">
+			<div class="col-md-8 table-responsive">
 				<table class="table">
 					<tr>
 						<th></th>

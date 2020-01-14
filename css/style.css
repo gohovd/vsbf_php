@@ -2,10 +2,7 @@
     #navIcon {
         display: none;
     }
-    #navigation-bar {
-        font-size: 0.8em;
-    }
-  }
+}
 
 .under-construction {
     margin-left: 50px;
@@ -52,49 +49,37 @@
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
-.nav {
-    position: relative;
-    width: 100%;
-    padding: 10px 0 10px 0;
+.nav-item a {
+    color: rgba(68, 85, 140, 0.8) !important;
+    border-bottom: 1px solid transparent;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
 }
-
-.nav i {
-    color: rgb(68, 85, 140);
+.nav-item a:hover {
+    color: black !important;
+    border-bottom: 1px solid rgba(68, 85, 140, 0.8);
 }
-
-.nav a {
-    font-weight: 500;
-    border-bottom: 2px solid transparent;
-    border-width: 0%;
-}
-
-li#Loginlink.nav-link, li#Logoutlink.nav-link {
-    position: absolute;
-    right: 0px;
-}
-
-/* unvisited link */
-
-.nav a:link {
-    color: rgb(68, 85, 140);
-}
-
-/* visited link */
-
-.nav a:visited {
-    color: rgb(68, 85, 140);
-}
-
-.nav a:hover {
-    text-decoration: none;
-    border-bottom: 2px solid rgb(68, 85, 140);
-    transition: border .2s ease-in-out;
-
-}
-
 .active a {
-    border-color: rgb(68, 85, 140);
-    color: black;
+    color: black !important;
+    border-bottom: 1px solid rgba(68, 85, 140, 0.8);
+}
+
+.navbar-brand i {
+    padding: 10px;
+    text-align: center !important;
+    font-size: 1.5em;
+    border: 1px solid transparent !important;
+    background-color: rgba(68, 85, 140, 0.8);
+    border-radius: 20px;
+    margin-left: 5px;
+    color: rgb(245, 245, 245);
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    transition: all .2s ease-in-out;
+}
+.navbar-brand i:hover {
+    background-color: rgba(68, 85, 140, 1);
 }
 
 #navIcon {
@@ -104,13 +89,11 @@ li#Loginlink.nav-link, li#Logoutlink.nav-link {
     left: 50%;
     transition: all 0.6s ease-in-out 0s;
 }
-
 #navIcon:hover {
     cursor: default;
     transform: rotate(1080deg) scale(1.3);
     transition: all 5s ease-in-out;
 }
-
 #content {
     padding-top: 10px;
     padding-bottom: 100px;
@@ -128,11 +111,9 @@ li#Loginlink.nav-link, li#Logoutlink.nav-link {
 }
 
 /* holds cms buttons, func buttons, and posts */
-
 #news {
     position: relative;
 }
-
 #news-cms {
     padding-bottom: 40px;
 }
