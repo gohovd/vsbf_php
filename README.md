@@ -23,3 +23,5 @@ Lyst å bidra med noen av de funksjonelle kravene under? Ta gjerne kontakt med g
 - Facebook Login
 - Facebook API
 - Registrert bruker kan kommentere
+- Interaktiv båtplass velger/oversikt
+- Gjestebrygge/bobil-plass booking system
