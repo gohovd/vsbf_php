@@ -10,7 +10,7 @@ Lyst å bidra med noen av de funksjonelle kravene under? Ta gjerne kontakt med g
 - Trafikken på nettstedet er kryptert med TLS (i.e. https)
 - Passord blir kryptert og lagret som hash i database
 
-# Funksjonelle krav
+## Funksjonelle krav
 - Bruker oversikt for admin
 - Vær, vind, tidevann (e.g. https://api.met.no/weatherapi/)
 - Kontaktskjema (siktet på kasserer/formann)
