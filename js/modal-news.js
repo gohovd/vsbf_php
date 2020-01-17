@@ -165,8 +165,6 @@ function getCreateNewsForm(data) {
     file_form_group.appendChild(label_file_input);
     file_form_group.appendChild(file_input);
 
-    // TODO: Form validation
-
     return form;
 }
 
@@ -191,7 +189,7 @@ function generatePostDeleteButtons() {
         posts[i].appendChild(delBtn);
 
         delBtn.addEventListener("click", function() {
-            var post_id = this.parentElement.parentElement.parentElement.id;
+            var post_id = this.parentElement.parentElement.id;
             deletePost(post_id);
         });
     }
@@ -241,9 +239,17 @@ function deletePost(id) {
             post_id: id
         },
         success: function(html) {
-            window.location.reload();
+            // window.location.reload();
+            removePostFromDOM(id);
         }
     });
+}
+
+function removePostFromDOM(id) {
+    var post_to_remove = document.getElementById(id);
+    // post_to_remove.style.transition = "height .2s ease-in-out";
+    // post_to_remove.style.height = "0%";
+    post_to_remove.parentElement.removeChild(post_to_remove);
 }
 
 function deleteAllWithConfirm() {
@@ -288,7 +294,7 @@ function generatePostEditButtons() {
 
 function editPost() {
     // Open modal with current content already in place.
-    var post = this.parentElement.parentElement.parentElement;
+    var post = this.parentElement.parentElement;
     var id = post.id;
     var title = post.querySelector("#title").innerText;
     var content = post.querySelector("#post-content").innerText;
@@ -299,21 +305,27 @@ function editPost() {
     };
     var editNewsPostModal = getNewsPostModal(data);
     document.body.appendChild(editNewsPostModal);
+    $('#update-news-modal').modal({backdrop: 'static', keyboard: false});
     $('#update-news-modal').modal('show');
     
     var post_html = post.cloneNode(true);
-    post_html.removeChild(post_html.children[0]); // header
-    post_html.removeChild(post_html.children[0]); // hr
-    post_html.removeChild(post_html.children[0]); // redundant post-content
-    post_html.removeChild(post_html.children[post_html.children.length-1]); // hr
-    post_html.removeChild(post_html.children[post_html.children.length-1]); // footer
-    // tinymce.get('content-text-area').setContent(post_html.innerHTML);
+    // removing superfluous html elements
+    post_html.removeChild(post_html.children[0]);
+    post_html.removeChild(post_html.children[0]);
+    post_html.removeChild(post_html.children[0]);
+    post_html.removeChild(post_html.children[0]);
+    post_html.removeChild(post_html.children[0]);
+
     tinymce.init({
-        selector:'#content-text-area'
+        selector:'#content-text-area',
+        plugins: "code,pagebreak,fullpage,table,fullscreen,paste,spellchecker",
+        toolbar: 'undo redo | styleselect | bold italic |' + 
+                    'alignleft aligncenter alignright alignjustify |' + 
+                    'bullist numlist outdent indent | fullscreen'
     });
     setTimeout(function() {
         tinymce.activeEditor.setContent(post_html.innerHTML);
-    }, 100);
+    }, 300);
 }
 
 function removePostEditButtons() {

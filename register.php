@@ -32,12 +32,12 @@ if (session_id() == "") {
 				<input type="password" class="form-control" name="password" placeholder="Passord" id="password" required>
 			</div>
 
-			<label class="sr-only" for="email">Username</label>
+			<label class="sr-only" for="email">Epost</label>
 			<div class="input-group mb-2 mr-sm-2">
 				<div class="input-group-prepend">
 					<div class="input-group-text"><i class="fa fa-envelope"></i></div>
 				</div>
-				<input type="text" class="form-control" name="username" placeholder="Epost" id="email" required>
+				<input type="text" class="form-control" name="email" placeholder="Epost" id="email" required>
 			</div>
 
 			<input type="submit" class="btn btn-primary" value="Registrer">

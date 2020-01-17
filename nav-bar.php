@@ -107,7 +107,7 @@ $resources = array(
 
                     if(!count($left_links) == 0)
                     {
-                        print '<ul class="navbar-nav">';
+                        print '<ul class="navbar-nav left-links">';
                         foreach($left_links as $index => $link) {
                             print $link;
                         }
@@ -115,7 +115,7 @@ $resources = array(
                     }
 
                     if(!count($right_links) == 0) {
-                        print '<ul class="navbar-nav">';
+                        print '<ul class="navbar-nav right-links">';
                         foreach($right_links as $index => $link) {
                             print $link;
                         }

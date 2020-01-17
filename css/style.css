@@ -1,6 +1,9 @@
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     #navIcon {
         display: none;
+    }
+    .right-links {
+        position: inherit !important;
     }
 }
 
@@ -49,19 +52,21 @@
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
+.right-links {
+    position: absolute;
+    right: 0px;
+}
+
 .nav-item a {
     color: rgba(68, 85, 140, 0.8) !important;
-    border-bottom: 1px solid transparent;
     margin-left: 10px !important;
     margin-right: 10px !important;
 }
 .nav-item a:hover {
     color: black !important;
-    border-bottom: 1px solid rgba(68, 85, 140, 0.8);
 }
 .active a {
     color: black !important;
-    border-bottom: 1px solid rgba(68, 85, 140, 0.8);
 }
 
 .navbar-brand i {
@@ -176,7 +181,7 @@ button:disabled:hover {
     font-size: 0.9em !important;
     background-color: white;
     border: 1px solid rgba(68, 85, 140, 0.8);
-    box-shadow: -5px 5px 0px 0px rgba(68, 85, 140, 0.8);
+    /* box-shadow: -5px 5px 0px 0px rgba(68, 85, 140, 0.8); */
     color: black;
     margin-top: 15px;
     margin-bottom: 35px;
@@ -190,17 +195,19 @@ button:disabled:hover {
 #post-header {
     padding-top: 15px;
 }
+
 #post-footer {
     padding-bottom: 5px;
 }
 #updated-date, #date {
-    font-size: 0.8em;
+    font-size: 0.9em;
+    color: black;
+}
+#updated-date {
     text-align: right;
 }
-
 #author {
     font-size: 0.8em;
-    text-align: left;
 }
 
 .modal-dialog {
@@ -214,9 +221,11 @@ body {
     position: relative;
     color: rgb(68, 85, 140);
     min-height: 100vh;
+    padding-bottom: 60px;
 }
 
 footer {
+    margin-top: 40px;
     padding-top: 20px;
     padding-bottom: 30px;
     position: absolute;
