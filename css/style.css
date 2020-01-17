@@ -6,7 +6,14 @@
         position: inherit !important;
     }
 }
+.slide-out {
+    max-height: 0;
+    overflow: hidden;
+}
 
+#modal-box {
+    height: 100vh;
+}
 .under-construction {
     margin-left: 50px;
     margin-top: 50px;
@@ -58,7 +65,8 @@
 }
 
 .nav-item a {
-    color: rgba(68, 85, 140, 0.8) !important;
+    font-size: 1.1em;
+    color: rgba(68, 85, 140, 1) !important;
     margin-left: 10px !important;
     margin-right: 10px !important;
 }
@@ -114,7 +122,9 @@
     text-align: center;
     font-size: 1.5em;
 }
-
+.contact-detail-text {
+    color: black !important;
+}
 /* holds cms buttons, func buttons, and posts */
 #news {
     position: relative;
@@ -189,6 +199,7 @@ button:disabled:hover {
 
     padding-left: 20px;
     padding-right: 20px;
+    transition: max-height 1s ease-out;
 }
 
 

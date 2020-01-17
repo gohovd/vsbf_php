@@ -217,7 +217,8 @@ if (session_id() == "") {
                                 plugins: "code,pagebreak,fullpage,table,fullscreen,paste,spellchecker",
                                 toolbar: 'undo redo | styleselect | bold italic |' + 
                                             'alignleft aligncenter alignright alignjustify |' + 
-                                            'bullist numlist outdent indent'
+                                            'bullist numlist outdent indent | fullscreen',
+                                height: "400"
                             });
                         });
 

@@ -104,6 +104,9 @@ function getCreateNewsForm(data) {
     title_input.type = "text";
     title_input.name = "title";
     title_input.id = "news-title";
+    title_input.minLength = "4";
+    title_input.maxLength = "60";
+    title_input.required = true;
 
     var content_form_group = document.createElement("div");
     content_form_group.className = "form-group";
@@ -118,6 +121,7 @@ function getCreateNewsForm(data) {
     content_text_area.name = "content";
     content_text_area.id = "content-text-area";
     content_text_area.rows = 3;
+
     if (data != undefined) {
         content_text_area.setAttribute("form", "update-news-form");
     } else {
@@ -135,18 +139,18 @@ function getCreateNewsForm(data) {
         post_id.setAttribute("name", "id");
     }
 
-    var file_form_group = document.createElement("div");
-    file_form_group.className = "form-group";
+    // var file_form_group = document.createElement("div");
+    // file_form_group.className = "form-group";
 
-    var label_file_input = document.createElement("label");
-    label_file_input.setAttribute("for", "file-input");
-    label_file_input.innerText = "Last opp fil";
+    // var label_file_input = document.createElement("label");
+    // label_file_input.setAttribute("for", "file-input");
+    // label_file_input.innerText = "Last opp fil";
 
-    var file_input = document.createElement("input");
-    file_input.type = "file";
-    file_input.className = "form-control-file";
-    file_input.id = "file-input";
-    file_input.disabled = true;
+    // var file_input = document.createElement("input");
+    // file_input.type = "file";
+    // file_input.className = "form-control-file";
+    // file_input.id = "file-input";
+    // file_input.disabled = true;
 
     // put it together
     form.appendChild(title_form_group);
@@ -161,10 +165,10 @@ function getCreateNewsForm(data) {
     content_form_group.appendChild(label_content);
     content_form_group.appendChild(content_text_area);
 
-    form.appendChild(file_form_group);
-    file_form_group.appendChild(label_file_input);
-    file_form_group.appendChild(file_input);
-
+    // form.appendChild(file_form_group);
+    // file_form_group.appendChild(label_file_input);
+    // file_form_group.appendChild(file_input);
+    // TODO: Gallery and file upload
     return form;
 }
 
@@ -247,9 +251,8 @@ function deletePost(id) {
 
 function removePostFromDOM(id) {
     var post_to_remove = document.getElementById(id);
-    // post_to_remove.style.transition = "height .2s ease-in-out";
-    // post_to_remove.style.height = "0%";
     post_to_remove.parentElement.removeChild(post_to_remove);
+
 }
 
 function deleteAllWithConfirm() {
@@ -321,7 +324,8 @@ function editPost() {
         plugins: "code,pagebreak,fullpage,table,fullscreen,paste,spellchecker",
         toolbar: 'undo redo | styleselect | bold italic |' + 
                     'alignleft aligncenter alignright alignjustify |' + 
-                    'bullist numlist outdent indent | fullscreen'
+                    'bullist numlist outdent indent | fullscreen',
+                    height: "400"
     });
     setTimeout(function() {
         tinymce.activeEditor.setContent(post_html.innerHTML);
