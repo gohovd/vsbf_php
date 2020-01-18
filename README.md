@@ -1,6 +1,6 @@
 # Vike Småbåtforening
 Ett web prosjekt skrevet i HTML/CSS/JS i front med PHP bak.
-Lyst å bidra med noen av de funksjonelle kravene under? Ta gjerne kontakt med goran.hovde@gmail.com.
+Lyst å bidra med noen av de funksjonelle kravene under? Ta gjerne kontakt via goran.hovde@gmail.com.
 
 ## Brukere
 - Hvem som helst kan registere seg på nettstedet
@@ -14,14 +14,15 @@ Lyst å bidra med noen av de funksjonelle kravene under? Ta gjerne kontakt med g
 - Bruker oversikt for admin
 - Vær, vind, tidevann (e.g. https://api.met.no/weatherapi/)
 - Kontaktskjema (siktet på kasserer/formann)
-- Captcha i registrerings siden (hindre robot tull)
+- Captcha i registrerings-siden (e.g. google recaptcha)
 - Bilde opplasting
 - Konto aktivering
 - PHP Ruter
 - Bruk av cookies
-- Annonsering av bruk av cookies
+- Annonsering for bruk av cookies
 - Facebook Login
 - Facebook API
 - Registrert bruker kan kommentere
 - Interaktiv båtplass velger/oversikt
 - Gjestebrygge/bobil-plass booking system
+- Dark mode tema skifte
