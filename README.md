@@ -2,6 +2,8 @@
 Ett web prosjekt skrevet i HTML/CSS/JS i front med PHP bak.
 Lyst å bidra med noen av de funksjonelle kravene under? Ta gjerne kontakt via goran.hovde@gmail.com.
 
+Under kan du lese om de forskjellige potensielle forbedringene dette nettstedet kan nyte godt av.
+
 ## Brukere
 - Hvem som helst kan registere seg på nettstedet
 - Utelukkende administrator har ekstra funksjonalitet
@@ -30,3 +32,8 @@ Lyst å bidra med noen av de funksjonelle kravene under? Ta gjerne kontakt via g
 + Interaktiv båtplass velger og oversikt
 + Gjestebrygge-/bobil-plass bookingsystem
 + Tema skifte
+
+#### Diverse
++ Bruk av /js/show-message.js; tilbakemelding til bruker på handling
++ Tilbakemelding på registreringsskjema når brukernavn eller epost finnes fra før
++ Redirect til registrerings-siden når det feiler
