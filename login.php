@@ -52,14 +52,20 @@ if (session_id() == "") {
                 <input type="password" class="form-control" name="password" placeholder="Passord" id="password" required>
             </div>
 
-            <input type="submit" class="btn btn-primary" value="Login">
+            <input type="submit" class="btn btn-success" value="Logg inn">
 
         </form>
-        
-    </div>
-
-    <div style="text-align: center;">
-        Ingen konto? <a href="./register.php">Registrer deg</a>.
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="./register.php"><i>Ny konto</i></a>
+        </div>        
     </div>
 
 </body>
+
+<style>
+
+body {
+	background-color: rgb(68, 85, 140);
+}
+
+</style>

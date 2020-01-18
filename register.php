@@ -10,6 +10,8 @@ if (session_id() == "") {
 <?php include('./head.php'); ?>
 <?php include('./nav-bar.php'); ?>
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <body>
 
 	<div class="container register">
@@ -39,10 +41,24 @@ if (session_id() == "") {
 				</div>
 				<input type="text" class="form-control" name="email" placeholder="Epost" id="email" required>
 			</div>
+			
+			<!-- <div class="g-recaptcha" data-sitekey="6LctktAUAAAAABFFRsJT50kpRkJD_37bhZ_PsAbs"></div>
+			<br> -->
+			<!--
+				TODO: 	1. reCaptcha back end integration
+						2. Form validation
+						3. Show message if user exists, redirect to register with message.
+			-->
 
-			<input type="submit" class="btn btn-primary" value="Registrer">
+			<input type="submit" class="btn btn-success" value="Registrer">
 
 		</form>
 
 	</div>
 </body>
+
+<style>
+body {
+	background-color: rgb(68, 85, 140);
+}
+</style>

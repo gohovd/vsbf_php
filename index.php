@@ -63,32 +63,29 @@ if (session_id() == "") {
             </div>
 
                 <script type="text/javascript">
-                    $(document).ready(function() {
-                        var message = '<?php if (isset($_SESSION['message'])) { echo $_SESSION['message'];} else { echo "";} ?>';
-                        if (message != "") {
-                            document.getElementById("message-container").appendChild(showMessage("success", message));
-                            setTimeout(function() {
-                                document.getElementById("message").parentNode.removeChild(document.getElementById("message"));
-                            }, 5000);
-                        }
-                        <?php
-                        // remove current message
-                        $_SESSION['message'] = "";
-                        ?>
+                    // $(document).ready(function() {
+                    //     var message = '<?php if (isset($_SESSION['message'])) {echo $_SESSION['message'];} else { echo "";} ?>';
 
-                        // init tooltips around the globe
-                        $('[data-toggle="tooltip"]').tooltip()
+                    //     if (message) {
+                    //         document.getElementById("message-container").appendChild(showMessage(type, message));
+                    //         setTimeout(function() {
+                    //             document.getElementById("message").parentNode.removeChild(document.getElementById("message"));
+                    //         }, 2500);
+                    //     }
 
-                        // deactivate edit and delete btns if no posts to edit or delete
-                        if (document.getElementsByClassName("post").length < 2) {
-                            document.getElementById("update-news").disabled = true;
-                            document.getElementById("delete-news").disabled = true;
-                        } else {
-                            document.getElementById("update-news").disabled = false;
-                            document.getElementById("delete-news").disabled = false;
-                        }
+                    //     // init tooltips around the globe
+                    //     $('[data-toggle="tooltip"]').tooltip()
 
-                    });
+                    //     // deactivate edit and delete btns if no posts to edit or delete
+                    //     if (document.getElementsByClassName("post").length < 2) {
+                    //         document.getElementById("update-news").disabled = true;
+                    //         document.getElementById("delete-news").disabled = true;
+                    //     } else {
+                    //         document.getElementById("update-news").disabled = false;
+                    //         document.getElementById("delete-news").disabled = false;
+                    //     }
+
+                    // });
                 </script>
 
                 <div id="news-posts">

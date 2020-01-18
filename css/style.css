@@ -125,6 +125,9 @@
 .contact-detail-text {
     color: black !important;
 }
+.contact-detail-text i {
+    color: rgba(68, 85, 140, 1) !important;
+}
 /* holds cms buttons, func buttons, and posts */
 #news {
     position: relative;
@@ -232,19 +235,32 @@ body {
     color: rgb(68, 85, 140);
     min-height: 100vh;
     padding-bottom: 60px;
+    height: 100%;
+    padding-bottom: 150px;
 }
 
 footer {
     margin-top: 40px;
-    padding-top: 20px;
-    padding-bottom: 30px;
     position: absolute;
+    padding-top: 5px;
+    padding-bottom: 5px;
     bottom: 0;
     background-color: rgb(50, 63, 107);
     color: white;
     text-align: left;
-    width: 100vw;
+    width: 100%;
+    transition: opacity .2s ease-in-out;
 }
+#extra {
+    transition: opacity .2s ease-in;
+}
+footer :nth-child(1) {
+    text-align: right;
+}
+footer :nth-child(2) {
+    text-align: left;
+}
+
 
 div#cookie-chooser.container {
     margin-top: 50px;
@@ -265,24 +281,46 @@ div#cookie-chooser.container {
 
 .login, .register {
     text-align: center;
+        
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 350px;
+    margin-bottom: 20px;
+}
+.login .input-group-text, .register .input-group-text {
+    background-color: rgb(68, 85, 140);
+    color: white;
+    font-size: 1.3em;
+}
+.login input, .register input {
+    width: 100%;
 }
 .login form, .register form {
     margin-top: 20px;
 }
-.login {
-    max-width: 400px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+.login h3, .register h3 {
+    text-align: left;
+}
+.register i {
+    width: 20px;
 }
 .login i {
     width: 20px;
 }
-
-.register {
-    max-width: 400px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+.login input {
+    width: 100%;
 }
+
 .register i {
     width: 20px;
 }

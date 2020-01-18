@@ -139,7 +139,7 @@ $resources = array(
                 action: 'logout'
             },
             success: function(html) {
-                // do nothing..
+                window.location.reload();
             }
         });
     }
