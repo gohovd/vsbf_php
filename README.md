@@ -11,18 +11,22 @@ Lyst å bidra med noen av de funksjonelle kravene under? Ta gjerne kontakt via g
 - Passord blir kryptert og lagret som hash i database
 
 ## Funksjonelle krav
-- Bruker oversikt for admin
-- Vær, vind, tidevann (e.g. https://api.met.no/weatherapi/)
-- Kontaktskjema (siktet på kasserer/formann)
-- Captcha i registrerings-siden (e.g. google recaptcha)
-- Bilde opplasting
-- Konto aktivering
-- PHP Ruter
-- Bruk av cookies
-- Annonsering for bruk av cookies
-- Facebook Login
-- Facebook API
-- Registrert bruker kan kommentere
-- Interaktiv båtplass velger/oversikt
-- Gjestebrygge/bobil-plass booking system
-- Dark mode tema skifte
+#### Brukere
++ Som admin kunne lese, endre, slette, lage brukere.
++ Send mail til bruker med aktiverings kode
++ Aktivering av konto åpner ekstra funksjonalitet
++ Aktiverte brukere kan kommentere
++ Brukere kan logge inn med Facebook profil
++ Brukere kan logge inn med Google profil
+
+#### System
++ Captcha i registrerings-skjema
++ Bruk av cookies
++ Annonsere bruk av cookies
++ Kontaktskjema
++ Meteorologisk institutt API (https://api.met.no/weatherapi/)
++ PHP Ruter
++ Bilde opplasting
++ Interaktiv båtplass velger og oversikt
++ Gjestebrygge-/bobil-plass bookingsystem
++ Tema skifte
