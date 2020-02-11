@@ -120,11 +120,6 @@ h5 {
 
     color: white;
 }
-
-.navbar-brand i:hover {
-    background-color: transparent;
-}
-
 nav {
     display: inline-block;
     vertical-align: middle;
@@ -229,12 +224,11 @@ nav {
 
 #kart {
     height: 640px;
-    margin-bottom: -17px;`
+    margin-bottom: -17px;
 }
 
 /* holds cms buttons, func buttons, and posts */
-#news > div {
-}
+
 #news-cms {
     padding-bottom: 40px;
     width: 100%;
@@ -271,8 +265,7 @@ nav {
 }
 
 #btn-row {
-    position: absolute;
-    right: 10px;
+    float: right;
 }
 
 button:disabled:hover {

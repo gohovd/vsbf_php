@@ -49,8 +49,9 @@ if ($stmt->num_rows > 0) {
 			error_log("Error evaluating formann: " . $con->error);
 		}
 
-        $_SESSION['message'] = 'Vellykket innlogging! Velkommen <i>' . ucfirst($_SESSION['username']) . "</i>.";
-		header("Location: " . $baseUrl);
+		
+		$_SESSION['message'] = 'Vellykket innlogging! Velkommen <i>' . ucfirst($_SESSION['username']) . "</i>.";
+		header("Location: " . (($baseUrl == "") ? "/" : $baseUrl));
 	} else {
 		header("Location: " . $baseUrl . "/login.php");
 		$_SESSION['message'] = 'Feil passord. Prøv igjen.';

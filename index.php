@@ -24,16 +24,8 @@ if (session_id() == "") {
     <img id="landing-image" class="img-fluid" src="./media/tresfjord_brua.png">
 
     <script type="text/javascript">
-        var loggedin = '<?php if (isset($_SESSION['loggedin'])) {
-                            echo $_SESSION['loggedin'];
-                        } else {
-                            echo 0;
-                        } ?>';
-        var a = '<?php if (isset($_SESSION['formann'])) {
-                        echo $_SESSION['formann'];
-                    } else {
-                        echo 0;
-                    } ?>';
+        var loggedin = '<?php if (isset($_SESSION['loggedin'])) { echo $_SESSION['loggedin'];} else {echo 0;} ?>';
+        var a = '<?php if (isset($_SESSION['formann'])) {echo $_SESSION['formann'];} else {echo 0;} ?>';
     </script>
 
     <?php
@@ -221,6 +213,9 @@ if (session_id() == "") {
 <style>
     .nav-link {
         color: white !important;
+    }
+    .navbar-brand i:hover {
+        background-color: transparent;
     }
 
 
