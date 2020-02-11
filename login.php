@@ -3,11 +3,17 @@ if (session_id() == "") {
 	session_start();
 }
 ?>
-<?php $title = 'Logg inn'; ?>
-<?php $currentPage = 'Logg in'; ?>
+<?php $title = 'LOGG INN'; ?>
+<?php $currentPage = 'LOGG INN'; ?>
 
 <?php include('./head.php'); ?>
 <?php include('./nav-bar.php'); ?>
+<?php
+    require_once "./helpers/fb-config.php";
+    $redirectURL = "http://localhost/php_web_project/tutorial/helpers/fb-callback.php";
+    $permissions = ['email'];
+    $loginURL = $helper->getLoginUrl($redirectURL, $permissions);
+?>
 
 <body>
 
@@ -47,8 +53,9 @@ if (session_id() == "") {
                 <input type="password" class="form-control" name="password" placeholder="Passord" id="password" required>
             </div>
 
-            <input type="submit" id="login-btn" class="btn btn-primary" value="Logg inn">
-
+            <input type="submit" id="login-btn" class="btn btn-primary" value="Logg Inn">
+            <!-- <input style="margin-top: 10px;" onclick="window.location = '<?php echo $loginURL ?>';" type="facebook-login" id="facebook-login-btn" class="btn btn-primary" value="Logg inn med Facebook"> -->
+            <!-- TODO: Enable facebook connect with / login -->
         </form>
 
         <div id="register-btn">

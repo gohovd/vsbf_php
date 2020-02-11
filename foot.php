@@ -10,7 +10,7 @@
         <a style="color: white;" href="https://github.com/gohovd/vsbf_php"><i class="fa fa-github" aria-hidden="true"></i></a><br>
       </div> -->
 
-      <div class="col-md-4">
+      <div class="col-md-10 col-md-offset-1">
         <h5>OM OSS</h5>
 
         <table id="about-table">
@@ -61,10 +61,32 @@
             </td>
           </tr>
 
+          <tr>
+            <th>
+              <i class="fa fa-github-alt"></i>
+            </th>
+            <th>
+              <b>Web prosjekt:</b>
+            </th>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <a id="support-mail-link" href="mailto:support@vikesbf.no?Subject=Vike%20SBF target="_top"><i>support@vikesbf.no</i></a> |
+              <a href="https://github.com/gohovd/vsbf_php">GitHub</a>
+            </td>
+          </tr>
+
+          <style>
+            #support-mail-link:hover {
+              text-decoration-color: green !important;
+            }
+          </style>
+
         </table>
 
       </div>
-
+<!-- TODO: Aktiver kolonne for siste nytt og abonner epost
       <div class="col-lg-4">
         <h5>SISTE NYTT</h5>
 
@@ -130,7 +152,7 @@
 
         </form>
 
-      </div>
+      </div> -->
 
     </div>
 

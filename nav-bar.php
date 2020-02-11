@@ -4,35 +4,36 @@ if (session_id() == "") {
 }
 // include ('./helpers/debug.php');
 $resources = array(
-    'Hjem' => array(
+    'HJEM' => array(
         'url' => '/index.php',
         'icon' => 'fa fa-home',
         'function' => '',
         'restricted' => false,
         'position' => 'left'
     ),
-    'Logg inn' => array(
+    'LOGG INN' => array(
         'url' => '/login.php',
         'icon' => 'fa fa-sign-in',
         'function' => '',
         'restricted' => false,
         'position' => 'right'
     ),
-    'Galleri' => array(
-        'url' => '/galleri.php',
-        'icon' => 'fa fa-picture-o',
-        'function' => '',
-        'restricted' => false,
-        'position' => 'left'
-    ),
-    'Logg ut' => array(
+    // 'GALLERI' => array(
+    //     'url' => '/galleri.php',
+    //     'icon' => 'fa fa-picture-o',
+    //     'function' => '',
+    //     'restricted' => false,
+    //     'position' => 'left'
+    // ),
+    // TODO: Aktiver galleri visning igjen
+    'LOGG UT' => array(
         'url' => '/',
         'icon' => 'fa fa-sign-out',
         'function' => 'logout()',
         'restricted' => false,
         'position' => 'right'
     ),
-    'Kontakt' => array(
+    'KONTAKT' => array(
         'url' => '/kontakt.php',
         'icon' => 'fa fa-address-card-o',
         'function' => '',
@@ -63,9 +64,9 @@ $resources = array(
                     $li_closing = '</li>';
                     // debug_to_console("Keys: ".$keys[$i]);
 
-                    if ($keys[$i] == "Logg inn" && ((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE))) {
+                    if ($keys[$i] == "LOGG INN" && ((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE))) {
                         continue; // if logged in, do not produce login link
-                    } else if ($keys[$i] == "Logg ut" && (!isset($_SESSION['loggedin']))) {
+                    } else if ($keys[$i] == "LOGG UT" && (!isset($_SESSION['loggedin']))) {
                         continue; // if logged out, do not produce logout link
                     }
 
@@ -144,15 +145,16 @@ $resources = array(
     }
 
     var brand = document.getElementsByClassName("navbar-brand")[0];
+    var flag = false;
 
     window.onload = changeBrand;
     window.onresize = changeBrand;
 
     function changeBrand() {
         if (window.innerWidth < 768) {
-            brand.innerHTML = "<i class='fa fa-anchor'></i>";
+            brand.innerHTML = "<i id='brand-icon' class='fa fa-anchor'></i>";
         } else {
-            brand.innerText = "Vike Småbåtforening";
+            brand.innerHTML = "<i id='brand-icon' class='fa fa-anchor' style='color: white;'></i>";
         }
         document.getElementsByClassName("navbar-brand")[0].style.display = "block";
         document.getElementsByClassName("navbar-toggler")[0].style.opacity = "100%";
@@ -162,24 +164,20 @@ $resources = array(
 
 
     (function() {
-
         document.getElementsByClassName("navbar-toggler")[0].addEventListener("click", function(event) {
-            var icon = brand.getElementsByClassName("fa fa-anchor")[0];
-            var anchor = document.getElementsByClassName("fa fa-anchor")[0];
-            var lifering = document.getElementsByClassName("fa fa-life-ring")[0];
 
-            if (anchor) {
-                icon.className = "fa fa-life-ring";
-                icon.style.backgroundColor = "green";
-                icon.style.color = "white";
-                
-            } else {
+            var icon = document.getElementById("brand-icon");
+
+            if (icon.className == "" || icon.className == "fa fa-life-ring") {
                 icon.className = "fa fa-anchor";
                 icon.style.backgroundColor = "rgb(111, 169, 222)";
-                icon.style.color = "rgb(75, 62, 49)";
+                icon.style.color = "white";
+            } else {
+                icon.className = "fa fa-life-ring";
+                icon.style.backgroundColor = "red";
+                icon.style.color = "white";
             }
 
-            console.log("on");
         });
 
 

@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-      <title><?php echo $title ?></title>
+      <title><?php echo "Vike SBF | " . $title ?></title>
       <link rel="icon" href="./media/iconw.png">
 
       <meta name="viewport" content="width=device-width, initial-scale=1">

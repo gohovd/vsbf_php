@@ -3,8 +3,8 @@ if (session_id() == "") {
 	session_start();
 }
 ?>
-<?php $title = 'Kontakt'; ?>
-<?php $currentPage = 'Kontakt'; ?>
+<?php $title = 'KONTAKT'; ?>
+<?php $currentPage = 'KONTAKT'; ?>
 
 <?php include('./head.php'); ?>
 <?php include('./nav-bar.php'); ?>
@@ -90,3 +90,9 @@ if (session_id() == "") {
 <?php
 include('./foot.php');
 ?>
+
+<style>
+	body {
+		padding-bottom: 550px;
+	}
+</style>

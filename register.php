@@ -50,9 +50,12 @@ if (session_id() == "") {
 </body>
 
 <style>
+
 body {
     /* background-color: rgba(57, 82, 170, 1); */
     background-image: url("./media/tresfjord_fjellene.png");
-    background-size: cover;
+    background-size: auto 100vh;
+    background-repeat: no-repeat;
 }
+
 </style>
