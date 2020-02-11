@@ -15,30 +15,22 @@ if (session_id() == "") {
 <body>
 
 	<div class="container register">
-	<h3>Lag ny konto</h3>
+	<h2>Lag ny konto</h2>
+	<hr>
 		<form action="./helpers/reg.php" method="post" autocomplete="off">
 
 			<label class="sr-only" for="username">Username</label>
 			<div class="input-group mb-2 mr-sm-2">
-				<div class="input-group-prepend">
-					<div class="input-group-text"><i class="fa fa-user"></i></div>
-				</div>
 				<input type="text" class="form-control" name="username" placeholder="Brukernavn" id="username" required>
 			</div>
 
 			<label class="sr-only" for="password">Passord</label>
 			<div class="input-group mb-2 mr-sm-2">
-				<div class="input-group-prepend">
-					<div class="input-group-text"><i class="fa fa-lock"></i></div>
-				</div>
 				<input type="password" class="form-control" name="password" placeholder="Passord" id="password" required>
 			</div>
 
 			<label class="sr-only" for="email">Epost</label>
 			<div class="input-group mb-2 mr-sm-2">
-				<div class="input-group-prepend">
-					<div class="input-group-text"><i class="fa fa-envelope"></i></div>
-				</div>
 				<input type="text" class="form-control" name="email" placeholder="Epost" id="email" required>
 			</div>
 			
@@ -50,7 +42,7 @@ if (session_id() == "") {
 						3. Show message if user exists, redirect to register with message.
 			-->
 
-			<input type="submit" class="btn btn-success" value="Registrer">
+			<input type="submit" class="btn btn-primary" id="reg-btn" value="Registrer">
 
 		</form>
 
@@ -59,6 +51,8 @@ if (session_id() == "") {
 
 <style>
 body {
-	background-color: rgb(68, 85, 140);
+    /* background-color: rgba(57, 82, 170, 1); */
+    background-image: url("./media/tresfjord_fjellene.png");
+    background-size: cover;
 }
 </style>

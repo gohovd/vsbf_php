@@ -11,7 +11,7 @@ $resources = array(
         'restricted' => false,
         'position' => 'left'
     ),
-    'Login' => array(
+    'Logg inn' => array(
         'url' => '/login.php',
         'icon' => 'fa fa-sign-in',
         'function' => '',
@@ -25,7 +25,7 @@ $resources = array(
         'restricted' => false,
         'position' => 'left'
     ),
-    'Logout' => array(
+    'Logg ut' => array(
         'url' => '/',
         'icon' => 'fa fa-sign-out',
         'function' => 'logout()',
@@ -46,83 +46,82 @@ $resources = array(
     <div class="container">
 
         <nav class="navbar navbar-expand-md navbar-light">
-        <!-- <i class="fa fa-anchor"></i> -->
-            <a class="navbar-brand" href="/">Vike Småbåtforening</a>
+            <!-- <i class="fa fa-anchor"></i> -->
+            <a class="navbar-brand" href="/">Vike Småbåtforening</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <?php
-                    $left_links = array();
-                    $right_links = array();
-                    $keys = array_keys($resources);
-                    for ($i = 0; $i < count($resources); $i++) {
-                        $li_opening = '<li id="' . $keys[$i] . 'link" ' . (($currentPage === $keys[$i]) ? 'class="nav-item active" ' : 'class="nav-item"');
-                        $li_closing = '</li>';
-                        // debug_to_console("Keys: ".$keys[$i]);
+                <?php
+                $left_links = array();
+                $right_links = array();
+                $keys = array_keys($resources);
+                for ($i = 0; $i < count($resources); $i++) {
+                    $li_opening = '<li id="' . $keys[$i] . 'link" ' . (($currentPage === $keys[$i]) ? 'class="nav-item active" ' : 'class="nav-item"');
+                    $li_closing = '</li>';
+                    // debug_to_console("Keys: ".$keys[$i]);
 
-                        if ($keys[$i] == "Login" && ((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE))) {
-                            continue; // if logged in, do not produce login link
-                        } else if ($keys[$i] == "Logout" && (!isset($_SESSION['loggedin']))) {
-                            continue; // if logged out, do not produce logout link
-                        }
-
-                        // only produce link to restricted resource if user is admin
-                        if ($resources[$keys[$i]]['restricted'] == true) {
-                            if (!isset($_SESSION['formann'])) {
-                                continue;
-                            }
-                        }
-
-                        foreach ($resources[$keys[$i]] as $key => $value) {
-
-                            switch ($key) {
-                                case "url":
-                                    // $a_href = ($keys[$i] == "Logout") ? ('<a href="#">' . $keys[$i] . '</a>') : ('<a href="' . $baseUrl . $value . '">' . $keys[$i] . '</a>');
-                                    $a_open = '<a class="nav-link" href="' . $baseUrl . $value . '">';
-                                    $a_close = '</a>';
-                                    break;
-                                case "icon":
-                                    $icon = '<i class="' . $value . '">&nbsp;</i>'  . $keys[$i];
-                                    break;
-                                case "function":
-                                    $func = ($value != "") ? ('onclick="' . $value . '">') : ">";
-                                    break;
-                            }
-                            // debug_to_console("K,V: ".$key . " : " . $value);
-                        }
-
-                        $nav_link = $li_opening . $func .  $a_open . $icon . $a_close . $li_closing;
-
-                        if ($key == "position" && $value == "left") {
-                            array_push($left_links, $nav_link);
-                        } else if ($key == "position" && $value == "right") {
-                            array_push($right_links, $nav_link);
-                        }
-                        // $nav_link = $li_opening . $func .  $a_open . $icon . $a_close . $li_closing;
-                        // print $nav_link;
+                    if ($keys[$i] == "Logg inn" && ((isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == TRUE))) {
+                        continue; // if logged in, do not produce login link
+                    } else if ($keys[$i] == "Logg ut" && (!isset($_SESSION['loggedin']))) {
+                        continue; // if logged out, do not produce logout link
                     }
 
-                    if(!count($left_links) == 0)
-                    {
-                        print '<ul class="navbar-nav left-links">';
-                        foreach($left_links as $index => $link) {
-                            print $link;
+                    // only produce link to restricted resource if user is admin
+                    if ($resources[$keys[$i]]['restricted'] == true) {
+                        if (!isset($_SESSION['formann'])) {
+                            continue;
                         }
-                        print '</ul>';
                     }
 
-                    if(!count($right_links) == 0) {
-                        print '<ul class="navbar-nav right-links">';
-                        foreach($right_links as $index => $link) {
-                            print $link;
+                    foreach ($resources[$keys[$i]] as $key => $value) {
+
+                        switch ($key) {
+                            case "url":
+                                // $a_href = ($keys[$i] == "Logout") ? ('<a href="#">' . $keys[$i] . '</a>') : ('<a href="' . $baseUrl . $value . '">' . $keys[$i] . '</a>');
+                                $a_open = '<a class="nav-link" href="' . $baseUrl . $value . '">';
+                                $a_close = '</a>';
+                                break;
+                            case "icon":
+                                $icon = '<i class="' . $value . '"></i>&nbsp;&nbsp;'  . $keys[$i];
+                                break;
+                            case "function":
+                                $func = ($value != "") ? ('onclick="' . $value . '">') : ">";
+                                break;
                         }
-                        print '</ul>';
+                        // debug_to_console("K,V: ".$key . " : " . $value);
                     }
-                    // print '<img class="w3-hide-small" id="navIcon" src="./media/icon.png">';
-                    ?>
+
+                    $nav_link = $li_opening . $func .  $a_open . $icon . $a_close . $li_closing;
+
+                    if ($key == "position" && $value == "left") {
+                        array_push($left_links, $nav_link);
+                    } else if ($key == "position" && $value == "right") {
+                        array_push($right_links, $nav_link);
+                    }
+                    // $nav_link = $li_opening . $func .  $a_open . $icon . $a_close . $li_closing;
+                    // print $nav_link;
+                }
+
+                if (!count($left_links) == 0) {
+                    print '<ul class="navbar-nav left-links">';
+                    foreach ($left_links as $index => $link) {
+                        print $link;
+                    }
+                    print '</ul>';
+                }
+
+                if (!count($right_links) == 0) {
+                    print '<ul class="navbar-nav right-links">';
+                    foreach ($right_links as $index => $link) {
+                        print $link;
+                    }
+                    print '</ul>';
+                }
+                // print '<img class="w3-hide-small" id="navIcon" src="./media/icon.png">';
+                ?>
 
             </div>
         </nav>
@@ -143,4 +142,46 @@ $resources = array(
             }
         });
     }
+
+    var brand = document.getElementsByClassName("navbar-brand")[0];
+
+    window.onload = changeBrand;
+    window.onresize = changeBrand;
+
+    function changeBrand() {
+        if (window.innerWidth < 768) {
+            brand.innerHTML = "<i class='fa fa-anchor'></i>";
+        } else {
+            brand.innerText = "Vike Småbåtforening";
+        }
+        document.getElementsByClassName("navbar-brand")[0].style.display = "block";
+        document.getElementsByClassName("navbar-toggler")[0].style.opacity = "100%";
+    }
+
+    changeBrand();
+
+
+    (function() {
+
+        document.getElementsByClassName("navbar-toggler")[0].addEventListener("click", function(event) {
+            var icon = brand.getElementsByClassName("fa fa-anchor")[0];
+            var anchor = document.getElementsByClassName("fa fa-anchor")[0];
+            var lifering = document.getElementsByClassName("fa fa-life-ring")[0];
+
+            if (anchor) {
+                icon.className = "fa fa-life-ring";
+                icon.style.backgroundColor = "green";
+                icon.style.color = "white";
+                
+            } else {
+                icon.className = "fa fa-anchor";
+                icon.style.backgroundColor = "rgb(111, 169, 222)";
+                icon.style.color = "rgb(75, 62, 49)";
+            }
+
+            console.log("on");
+        });
+
+
+    })();
 </script>

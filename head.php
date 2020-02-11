@@ -23,6 +23,13 @@
       <script src="./js/tinymce/tinymce.min.js"></script>
 
       <script src="./js/show-message.js"></script>
+      <script src="./js/utils.js"></script>
+
+      <!-- PhotoSwipe -->
+      <link rel="stylesheet" href="./lib/photoswipe/photoswipe.css">
+      <link rel="stylesheet" href="lib/photoswipe/default-skin/default-skin.css">
+      <script src="lib/photoswipe/photoswipe.min.js"></script>
+      <script src="lib/photoswipe/photoswipe-ui-default.min.js"></script>
 
       <?php $baseUrl = "/php_web_project/tutorial"; ?>
 </head>

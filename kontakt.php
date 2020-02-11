@@ -11,7 +11,7 @@ if (session_id() == "") {
 
 <body>
 
-	<div class="container" style="margin-top: 25px;">
+	<div class="container contacts" style="margin-top: 25px;">
 
 		<div class="row">
 

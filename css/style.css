@@ -5,15 +5,172 @@
     .right-links {
         position: inherit !important;
     }
+    /* .navbar-brand i {
+        position: absolute;
+        top: 7px;
+        right: 0px;
+        width: 100px;
+        pointer-events: none;
+    } */
+    .navbar-collapse {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    nav li {
+        margin-bottom: 10px;
+    }
+    .heading i {
+        margin-left: 15px;
+        color: rgb(111, 169, 222);
+    }
+    .heading {
+        width: 100%;
+        margin-top: 5px;
+        font-size: 1.5em !important;
+        text-align: center !important;
+        padding-bottom: 15px;
+    }
+    #kart {
+        padding-bottom: 335px !important;
+    }
+}
+@media only screen and (min-width: 568px) and (max-width: 992px) {
+    #kart {
+        padding-bottom: 455px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .nav-link {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+.heading {
+    width: 100%;
+    margin-top: 5px;
+    font-size: 3em;
+    text-align: center !important;
+    padding-bottom: 15px;
+/*     
+    background-color: rgba(68, 85, 140, 1);
+    color: white;
+    margin-top: -0px;
+    position: absolute;
+     */
 }
 .slide-out {
     max-height: 0;
     overflow: hidden;
 }
 
-#modal-box {
-    height: 100vh;
+#content h1 {
+    color: rgb(57, 82, 170);
 }
+
+.heading i {
+    padding: 10px;
+    /* border: 1px solid transparent !important;
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgb(57, 82, 170); */
+
+    transition: all .2s ease-in-out !important;
+
+    color: rgb(57, 82, 170);
+
+    font-size: 2.25em;
+
+    margin-right: 15px;
+
+    text-align: center !important;
+}
+/* .heading i:hover {
+    background-color: green;
+} */
+
+h5 {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    font-weight: 350;
+    color: black !important;
+    font-size: 1.5em;
+}
+
+#navigation-bar {
+    background-color: white;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.3);
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    display: none;
+    margin-right: 45px;
+}
+.navbar-toggler {
+    opacity: 0;
+}
+
+.navbar-brand i {
+    padding: 10px;
+    text-align: center !important;
+    border: 1px solid transparent !important;
+    /* border-radius: 5px; */
+    margin-left: 5px;
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    transition: all .5s ease-in-out !important;
+    background-color: rgb(111, 169, 222);
+
+    color: rgb(75, 62, 49);
+
+}
+
+
+nav {
+    display: inline-block;
+    vertical-align: middle;
+    z-index: 100;
+}
+    
+.nav-link {
+    border: 1px solid transparent;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    color: rgb(37, 52, 104) !important;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-weight: 500 !important;
+
+}
+.nav-link:hover {
+    border: 1px solid transparent !important;
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    transition: all .1s ease-in-out !important;
+    background-color: green;
+    color: white !important;
+}
+.active a {
+    border: 1px solid transparent !important;
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    transition: all .2s ease-in-out !important;
+    background-color: green;
+    color: white !important;
+}
+
+
+#modal-box {
+    min-height: 100vh;
+}
+
 .under-construction {
     margin-left: 50px;
     margin-top: 50px;
@@ -50,49 +207,9 @@
     display: inline-block;
 }
 
-#navigation-bar {
-    position: relative;
-    background-color: whitesmoke;
-    border-bottom: 1px solid lightgray;
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
-}
-
 .right-links {
     position: absolute;
     right: 0px;
-}
-
-.nav-item a {
-    font-size: 1.1em;
-    color: rgba(68, 85, 140, 1) !important;
-    margin-left: 10px !important;
-    margin-right: 10px !important;
-}
-.nav-item a:hover {
-    color: black !important;
-}
-.active a {
-    color: black !important;
-}
-
-.navbar-brand i {
-    padding: 10px;
-    text-align: center !important;
-    font-size: 1.5em;
-    border: 1px solid transparent !important;
-    background-color: rgba(68, 85, 140, 0.8);
-    border-radius: 20px;
-    margin-left: 5px;
-    color: rgb(245, 245, 245);
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
-    transition: all .2s ease-in-out;
-}
-.navbar-brand i:hover {
-    background-color: rgba(68, 85, 140, 1);
 }
 
 #navIcon {
@@ -108,26 +225,19 @@
     transition: all 5s ease-in-out;
 }
 #content {
-    padding-top: 10px;
-    padding-bottom: 100px;
+    padding-bottom: 25px;
 }
-#sidebar div {
-    text-align: left;
+
+#content .row.heading {
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
-#sidebar i {
-    padding: 10px;
-    border-radius: 10px;
-    min-width: 42px;
-    min-height: 38px;
-    text-align: center;
-    font-size: 1.5em;
+
+#kart {
+    height: 640px;
+    margin-bottom: -17px;
 }
-.contact-detail-text {
-    color: black !important;
-}
-.contact-detail-text i {
-    color: rgba(68, 85, 140, 1) !important;
-}
+
 /* holds cms buttons, func buttons, and posts */
 #news {
     position: relative;
@@ -137,8 +247,7 @@
 }
 #news-advanced-functions {
     position: absolute;
-    left: 15px;
-    top: -5px;
+
 }
 
 #news-advanced-functions i {
@@ -168,8 +277,7 @@
 
 #btn-row {
     position: absolute;
-    right: 0px;
-    background-color: white;
+    right: 10px;
 }
 
 button:disabled:hover {
@@ -178,6 +286,7 @@ button:disabled:hover {
 
 #btn-row>button {
     margin-left: 10px;
+    background-color: white;
 }
 
 .c-btn {
@@ -193,15 +302,18 @@ button:disabled:hover {
 .post {
     font-size: 0.9em !important;
     background-color: white;
-    border: 1px solid rgba(68, 85, 140, 0.8);
+    /* border: 1px solid rgba(68, 85, 140, 0.8); */
     /* box-shadow: -5px 5px 0px 0px rgba(68, 85, 140, 0.8); */
     color: black;
-    margin-top: 15px;
-    margin-bottom: 35px;
 
+    margin-bottom: 35px;
     padding-left: 20px;
     padding-right: 20px;
     transition: max-height 1s ease-out;
+}
+
+.post #title {
+    color: rgb(37, 52, 104);
 }
 
 
@@ -233,24 +345,94 @@ button:disabled:hover {
 body {
     position: relative;
     color: rgb(68, 85, 140);
-    min-height: 100vh;
-    padding-bottom: 60px;
     height: 100%;
-    padding-bottom: 150px;
+    padding-bottom: 345px;
 }
 
 footer {
-    margin-top: 40px;
-    position: absolute;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    bottom: 0;
-    background-color: rgb(50, 63, 107);
-    color: white;
-    text-align: left;
     width: 100%;
-    transition: opacity .2s ease-in-out;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    padding-top: 25px;
+    padding-bottom: 15px;
+
+    background-color: rgb(17, 25, 54);
 }
+
+footer ul {
+    list-style: none;
+}
+
+footer table {
+    margin-left: 15px;
+}
+
+footer table th {
+    padding-right: 15px;
+}
+#about-table td {
+    padding-bottom: 20px;
+
+}
+footer table td {
+    color: rgb(185, 185, 185);
+}
+footer table td a {
+    color: white;
+}
+footer table td a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+
+footer h5 {
+    font-size: 1em;
+    color: white !important;
+    text-align: left !important;
+
+    font-weight: 500;
+}
+
+footer table i {
+    color: green;
+}
+footer b {
+    font-weight: 600;
+    color: white;
+}
+
+#latest {
+    margin-left: 15px;
+    color: rgb(185, 185, 185);
+    padding-bottom: 25px;
+}
+#latest .date {
+    color: white;
+    border: 1px solid white;
+    vertical-align: middle;
+    text-align: center;
+    max-height: 55px;
+    max-width: 60px;
+}
+#les-videre:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#subscribe-form #subscribe-btn {
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+    color: rgb(37, 52, 104) !important;
+}
+#subscribe-form #subscribe-btn:hover {
+    background-color: whitesmoke;
+    color: green !important;
+}
+
 #extra {
     transition: opacity .2s ease-in;
 }
@@ -270,6 +452,10 @@ div#cookie-chooser.container {
     justify-content: center;
 }
 
+.contacts {
+    padding-bottom: 300px;
+}
+
 #flavor {
     display: block;
     margin-top: 50px;
@@ -279,27 +465,41 @@ div#cookie-chooser.container {
     margin-right: auto;
 }
 
+#login-btn {
+    margin-top: 15px;
+}
+#register-btn {
+    padding-top: 15px !important;
+}
+#register-btn a { 
+    color: white !important;
+}
+#reg-btn {
+    margin-top: 15px;
+    margin-bottom: 15px !important;
+}
+
 .login, .register {
     text-align: center;
         
-    border: 1px solid white;
-    background-color: white;
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    border: 1px solid transparent;
+    background-color: rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
     padding: 30px;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 350px;
-    margin-bottom: 20px;
-}
-.login .input-group-text, .register .input-group-text {
-    background-color: rgb(68, 85, 140);
+    margin-top: 15%;
+
+    max-width: 90%;
+    width: 450px;
+
     color: white;
+    min-height: 300px;
+}
+
+.login .input-group-text, .register .input-group-text {
+    background-color: white;
     font-size: 1.3em;
 }
 .login input, .register input {

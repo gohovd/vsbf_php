@@ -3,8 +3,8 @@ if (session_id() == "") {
 	session_start();
 }
 ?>
-<?php $title = 'Login'; ?>
-<?php $currentPage = 'Login'; ?>
+<?php $title = 'Logg inn'; ?>
+<?php $currentPage = 'Logg in'; ?>
 
 <?php include('./head.php'); ?>
 <?php include('./nav-bar.php'); ?>
@@ -33,30 +33,26 @@ if (session_id() == "") {
     </script>
 
     <div class="container login">
-        <h3>Logg inn</h3>
+        <h2>Logg inn</h2>
+        <hr>
         <form action="./helpers/auth.php" method="post">
 
             <label class="sr-only" for="username">Username</label>
             <div class="input-group mb-2 mr-sm-2">
-                <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fa fa-user"></i></div>
-                </div>
                 <input type="text" class="form-control" name="username" placeholder="Brukernavn" id="username" required>
             </div>
 
             <label class="sr-only" for="password">Passord</label>
             <div class="input-group mb-2 mr-sm-2">
-                <div class="input-group-prepend">
-                <div class="input-group-text"><i class="fa fa-lock"></i></div>
-                </div>
                 <input type="password" class="form-control" name="password" placeholder="Passord" id="password" required>
             </div>
 
-            <input type="submit" class="btn btn-success" value="Logg inn">
+            <input type="submit" id="login-btn" class="btn btn-primary" value="Logg inn">
 
         </form>
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="./register.php"><i>Ny konto</i></a>
+
+        <div id="register-btn">
+            <a href="./register.php">Ny konto</a>
         </div>        
     </div>
 
@@ -65,7 +61,10 @@ if (session_id() == "") {
 <style>
 
 body {
-	background-color: rgb(68, 85, 140);
+    /* background-color: rgba(57, 82, 170, 1); */
+    background-image: url("./media/tresfjord_brua_bw.png");
+    background-size: auto 100vh;
+    background-repeat: no-repeat;
 }
 
 </style>
