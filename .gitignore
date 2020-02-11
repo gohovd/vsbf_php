@@ -2,5 +2,5 @@ config.php
 media/foer/
 media/cookies/
 media/highres/
-helpers/fa-config.php
+helpers/fb-config.php
 helpers/config.php
