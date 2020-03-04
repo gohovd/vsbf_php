@@ -4,6 +4,11 @@ Lyst å bidra med noen av de funksjonelle kravene under? Ta gjerne kontakt via g
 
 Under kan du lese om de forskjellige potensielle forbedringene dette nettstedet kan nyte godt av.
 
+## Neste
+- Chart.js for tidevann (månepos)
+- Hammer.js for swiping
+- Galleri og bildeopplasting
+
 ## Brukere
 - Hvem som helst kan registere seg på nettstedet
 - Utelukkende administrator har ekstra funksjonalitet
