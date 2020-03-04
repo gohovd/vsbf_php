@@ -61,22 +61,25 @@
 <style>
 
 .hl {
-    color: black;
+    color: white;
     position: relative;
     text-align: center;
 
-    border: 1px solid transparent;
+    border: 1px solid lightgray;
     border-radius: 5px;
 
     padding-top: 10px;
     padding-bottom: 10px;
 
     transition: all 0.2s ease-in-out;
+
+    background-color: rgb(30, 62, 100);
 }
+
 
 .hl:hover {
     border: 1px solid lightgray;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     cursor: pointer;
 }
 
