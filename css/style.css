@@ -55,6 +55,7 @@
 
 #landing-image {
     margin-top: -70px !important;
+    width: 100% !important;
 }
 
 .heading {
@@ -304,7 +305,6 @@ button:disabled:hover {
     color: rgb(37, 52, 104);
 }
 
-
 #post-header {
     padding-top: 15px;
 }
@@ -439,10 +439,6 @@ div#cookie-chooser.container {
     justify-content: center;
 }
 
-.contacts {
-    padding-bottom: 300px;
-}
-
 #flavor {
     display: block;
     margin-top: 50px;
@@ -470,47 +466,37 @@ div#cookie-chooser.container {
     text-align: center;
         
     border: 1px solid transparent;
-    background-color: rgba(0,0,0,0.4);
+    border-radius: 7px;
+
+    background-color: rgba(255,255,255,0.3);
     -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+
     padding: 30px;
 
-    margin-top: 15%;
+    margin-top: 5%;
 
     max-width: 90%;
-    width: 450px;
+    width: 350px;
 
-    color: white;
-    min-height: 300px;
+    color: rgb(37, 52, 104);
 }
 
 .login .input-group-text, .register .input-group-text {
     background-color: white;
     font-size: 1.3em;
 }
+
 .login input, .register input {
     width: 100%;
+    text-align: center;
 }
-.login form, .register form {
-    margin-top: 20px;
-}
+
 .login h3, .register h3 {
     text-align: left;
 }
-.register i {
-    width: 20px;
-}
-.login i {
-    width: 20px;
-}
-.login input {
-    width: 100%;
-}
 
-.register i {
-    width: 20px;
-}
 .tox {
     max-width: 90vw;
     max-height: 90vh;

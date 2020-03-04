@@ -9,17 +9,18 @@ if (session_id() == "") {
 <?php include('./head.php'); ?>
 <?php include('./nav-bar.php'); ?>
 <?php
-    require_once "./helpers/fb-config.php";
-    $redirectURL = "http://localhost/php_web_project/tutorial/helpers/fb-callback.php";
-    $permissions = ['email'];
-    $loginURL = $helper->getLoginUrl($redirectURL, $permissions);
+    # require_once "./helpers/fb-config.php";
+    # $redirectURL = "http://localhost/php_web_project/vikesmabat/helpers/fb-callback.php";
+    // $permissions = ['email'];
+    // $loginURL = $helper->getLoginUrl($redirectURL, $permissions);
 ?>
 
 <body>
 
     <?php echo '<div id="message-container"></div>'; ?>
 
-    <script type="text/javascript">
+    <!-- TODO: Fix showmessages -->
+    <!-- <script type="text/javascript">
         var message = '<?php if (isset($_SESSION['message'])) { echo $_SESSION['message'];} else { echo "NA";} ?>';
 
         $(document).ready(function() {
@@ -34,12 +35,12 @@ if (session_id() == "") {
         <?php
         // remove current message
         $_SESSION['message'] = "";
-        ?>
+        ?> -->
 
     </script>
 
     <div class="container login">
-        <h2>Logg inn</h2>
+        <i style="font-size: 3em;text-align:center;" class="fa fa-anchor"></i>
         <hr>
         <form action="./helpers/auth.php" method="post">
 
@@ -53,14 +54,14 @@ if (session_id() == "") {
                 <input type="password" class="form-control" name="password" placeholder="Passord" id="password" required>
             </div>
 
-            <input type="submit" id="login-btn" class="btn btn-primary" value="Logg Inn">
+            <input type="submit" id="login-btn" class="btn" value="LOGG INN">
             <!-- <input style="margin-top: 10px;" onclick="window.location = '<?php echo $loginURL ?>';" type="facebook-login" id="facebook-login-btn" class="btn btn-primary" value="Logg inn med Facebook"> -->
             <!-- TODO: Enable facebook connect with / login -->
         </form>
 
-        <div id="register-btn">
-            <a href="./register.php">Ny konto</a>
-        </div>        
+        <!-- <div id="register-btn">
+            <a href="./register.php">NY KONTO</a>
+        </div>         -->
     </div>
 
 </body>
@@ -69,7 +70,8 @@ if (session_id() == "") {
 
 body {
     /* background-color: rgba(57, 82, 170, 1); */
-    background-image: url("./media/tresfjord_brua_bw.png");
+    background-image: url("./media/webres/tresfjord_maere.png");
+    /* background-size: auto 100vh; */
     background-size: auto 100vh;
     background-repeat: no-repeat;
 }

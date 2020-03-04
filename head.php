@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-      <title><?php echo "Vike SBF | " . $title ?></title>
+      <title><?php echo $title  . " |  Vike SBF" ?></title>
       <link rel="icon" href="./media/iconw.png">
 
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,8 +16,17 @@
 
       <!-- javascript cdns -->
       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+      <!-- Chart.js -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+      <!-- Hammer.js -->
+      <script src="./js/hammer.min.js"></script>
 
       <!-- text editor -->
       <script src="./js/tinymce/tinymce.min.js"></script>
@@ -31,5 +40,5 @@
       <script src="lib/photoswipe/photoswipe.min.js"></script>
       <script src="lib/photoswipe/photoswipe-ui-default.min.js"></script>
 
-      <?php $baseUrl = "/php_web_project/tutorial"; ?>
+      <?php $baseUrl = "/php_web_project/vikesmabat"; ?>
 </head>

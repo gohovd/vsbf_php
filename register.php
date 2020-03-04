@@ -15,7 +15,7 @@ if (session_id() == "") {
 <body>
 
 	<div class="container register">
-	<h2>Lag ny konto</h2>
+	<i style="font-size: 3em;text-align:center;" class="fa fa-anchor"></i>
 	<hr>
 		<form action="./helpers/reg.php" method="post" autocomplete="off">
 
@@ -42,7 +42,7 @@ if (session_id() == "") {
 						3. Show message if user exists, redirect to register with message.
 			-->
 
-			<input type="submit" class="btn btn-primary" id="reg-btn" value="Registrer">
+			<input type="submit" class="btn" id="reg-btn" value="REGISTRER">
 
 		</form>
 
@@ -53,7 +53,7 @@ if (session_id() == "") {
 
 body {
     /* background-color: rgba(57, 82, 170, 1); */
-    background-image: url("./media/tresfjord_fjellene.png");
+    background-image: url("./media/webres/tresfjord_fjellene.png");
     background-size: auto 100vh;
     background-repeat: no-repeat;
 }

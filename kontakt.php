@@ -79,11 +79,12 @@ if (session_id() == "") {
 
 		</div>
 
-		<div class="row" id="contact-form">
+		<!-- TODO: Make contact form -->
+		<!-- <div class="row" id="contact-form">
 			<div class="col-lg-12">
 				
 			</div>
-		</div>
+		</div> -->
 	</div>
 </body>
 
@@ -92,7 +93,10 @@ include('./foot.php');
 ?>
 
 <style>
-	body {
-		padding-bottom: 550px;
+	.contacts {
+		height: 100vh;
+	}
+	footer {
+		position: inherit;
 	}
 </style>

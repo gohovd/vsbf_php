@@ -51,7 +51,7 @@ if ($stmt->num_rows > 0) {
 
 		
 		$_SESSION['message'] = 'Vellykket innlogging! Velkommen <i>' . ucfirst($_SESSION['username']) . "</i>.";
-		header("Location: " . (($baseUrl == "") ? "/" : $baseUrl));
+		header("Location: " . (($baseUrl == "") ? -"/" : $baseUrl));
 	} else {
 		header("Location: " . $baseUrl . "/login.php");
 		$_SESSION['message'] = 'Feil passord. Prøv igjen.';

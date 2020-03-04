@@ -18,6 +18,13 @@ $resources = array(
         'restricted' => false,
         'position' => 'right'
     ),
+    'TIDEVANN' => array(
+        'url' => '/tide.php',
+        'icon' => 'fa fa-moon-o',
+        'function' => '',
+        'restricted' => false,
+        'position' => 'left'
+    ),
     // 'GALLERI' => array(
     //     'url' => '/galleri.php',
     //     'icon' => 'fa fa-picture-o',
@@ -145,7 +152,6 @@ $resources = array(
     }
 
     var brand = document.getElementsByClassName("navbar-brand")[0];
-    var flag = false;
 
     window.onload = changeBrand;
     window.onresize = changeBrand;
@@ -163,6 +169,7 @@ $resources = array(
     changeBrand();
 
 
+    // change style of navigation button onclick (between anchor blue and lifering red)
     (function() {
         document.getElementsByClassName("navbar-toggler")[0].addEventListener("click", function(event) {
 
