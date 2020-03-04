@@ -26,7 +26,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 
       <!-- Hammer.js -->
-      <script src="./js/hammer.min.js"></script>
+      <!-- <script src="./js/hammer.min.js"></script> -->
 
       <!-- text editor -->
       <script src="./js/tinymce/tinymce.min.js"></script>

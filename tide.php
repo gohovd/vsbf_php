@@ -1,3 +1,8 @@
+<?php
+if (session_id() == "") {
+	session_start();
+}
+?>
 <?php $title = 'TIDEVANN'; ?>
 <?php $currentPage = 'TIDEVANN'; ?>
 
@@ -16,20 +21,12 @@
 
         border: 1px solid transparent;
         border-radius: 5px;
-
-        /* -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
-        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2); */
     }
 
     .chart-container {
         margin-top: 20px;
         margin-bottom: 20px;
     }
-
-    .moon {}
-
-    .settings {}
 
     .hl {
         position: relative;
@@ -62,6 +59,10 @@
         .hl div:nth-child(3) {
             border-right: 1px solid lightgray;
         }
+
+        #tide {
+            height: 130vh;
+        }
     }
     @media only screen and (max-width: 600px) {
         .hl div:nth-child(1) {
@@ -75,16 +76,16 @@
         .hl div:nth-child(3) {
             border-bottom: 1px solid lightgray;
         }
+
+        #tide {
+            height: 90vh;
+        }
     }
 </style>
 
-<div class="container">
+<div id="tide" class="container">
 
-    <div class="heading">
-        TIDEVANN
-    </div>
-
-    <h2 id="title_date">I dag, </h2>
+    <h2 id="title_date" style="margin-top: 30px;">I dag, </h2>
 
     <div id="hl_row" class="row hl">
         <div class="col-sm-3">
@@ -163,10 +164,13 @@
 
     </div>
 
+    <div style="text-align: center;padding-bottom:50px;">Data hentet fra <a href="https://www.kartverket.no/">kartverket.no</a></div>
+
+
 </div>
 
 <script type="text/javascript">
-    tide_url = "http://api.sehavniva.no/";
+    tide_url = "https://api.sehavniva.no/";
     api_script = "tideapi.php";
     lat = 62.6136265;
     lon = 7.1290284;
@@ -202,7 +206,6 @@
     });
 
     function fillHighLow(data) {
-        console.log(data);
         var hl = document.getElementById("hl_row");
         var cols = hl.children;
         var first_run = true;
@@ -238,7 +241,7 @@
 
     function getPlaces() {
         var settings = {
-            "url": "http://api.sehavniva.no/tideapi.php?tide_request=stationlist&type=perm",
+            "url": "https://api.sehavniva.no/tideapi.php?tide_request=stationlist&type=perm",
             "method": "GET",
             "timeout": 0
         };
@@ -354,7 +357,7 @@
     }
 
     function getTide(latitude, longitude, fromtime, totime, type, language, timezone, place, interval) {
-        var getreq = "http://api.sehavniva.no/tideapi.php?lat=" + latitude + "&lon=" + longitude;
+        var getreq = "https://api.sehavniva.no/tideapi.php?lat=" + latitude + "&lon=" + longitude;
         getreq += "&fromtime=" + fromtime + "&totime=" + totime;
         getreq += "&datatype=" + type + "&refcode=cd&place=" + place + "&file&lang=" + language;
         getreq += "&interval=" + interval + "&dst=0&tzone=" + timezone + "&tide_request=locationdata";
@@ -384,3 +387,13 @@
         return wl_data;
     }
 </script>
+
+<?php
+include('./foot.php');
+?>
+
+<style>
+	footer {
+		position: inherit;
+	}
+</style>
