@@ -12,7 +12,7 @@ function showMessage(type, text) {
 
     switch (type) {
         case "warning":
-            icon.className = "fa fa-exclamation";
+            icon.className = "fa fa-exclamation-triangle";
             message.className = "alert alert-warning";
             break;
         case "danger":

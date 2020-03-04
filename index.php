@@ -42,9 +42,9 @@ if (session_id() == "") {
 
     <div class="container" id="content">
 
-        <?php include('./components/news.php'); ?>
-
         <?php include('./components/tide.php'); ?>
+
+        <?php include('./components/news.php'); ?>
 
     </div>
 

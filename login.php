@@ -17,16 +17,22 @@ if (session_id() == "") {
 
 <body>
 
-    <?php echo '<div id="message-container"></div>'; ?>
-
     <!-- TODO: Fix showmessages -->
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
         var message = '<?php if (isset($_SESSION['message'])) { echo $_SESSION['message'];} else { echo "NA";} ?>';
 
         $(document).ready(function() {
             var message = '<?php if (isset($_SESSION['message'])) { echo $_SESSION['message'];} else { echo "";} ?>';
             if (message != "") {
-                document.getElementById("message-container").appendChild(showMessage("warning", message));
+                var msg_el = showMessage("info", message);
+                msg_el.style.opacity = "0";
+                msg_el.style.transition = "all 0.2s ease-in-out";
+                document.getElementById("message-container").appendChild(msg_el);
+                
+                setTimeout(function() {
+                    msg_el.style.opacity = "100";
+                }, 50);
+
                 setTimeout(function() {
                     document.getElementById("message").parentNode.removeChild(document.getElementById("message"));
                 }, 5000);
@@ -35,9 +41,15 @@ if (session_id() == "") {
         <?php
         // remove current message
         $_SESSION['message'] = "";
-        ?> -->
+        ?>
 
     </script>
+
+    <div id="message-container" class="container message">
+        <!-- <div class="alert alert-danger" role="alert">
+            A simple danger alert—check it out!
+        </div> -->
+    </div>
 
     <div class="container login">
         <i style="font-size: 3em;text-align:center;" class="fa fa-anchor"></i>
