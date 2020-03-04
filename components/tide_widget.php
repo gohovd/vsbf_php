@@ -6,28 +6,28 @@
 
 <div id="tide" class="container">
 
-    <h2 id="title_date" style="margin-top: 30px;">I dag, </h2>
+    <h4 id="title_date"></h4>
 
     <div id="hl_row" class="row hl">
-        <div class="col-sm-3">
+        <div class="col-md-3">
             <i id="hl_icon"></i>
             <span class="hl_time"></span>
             <span class="hl_cm"></span>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-md-3">
             <i id="hl_icon"></i>
             <span class="hl_time"></span>
             <span class="hl_cm"></span>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-md-3">
             <i id="hl_icon"></i>
             <span class="hl_time"></span>
             <span class="hl_cm"></span>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-md-3">
             <i id="hl_icon"></i>
             <span class="hl_time"></span>
             <span class="hl_cm"></span>
@@ -42,11 +42,10 @@
 
         function checkTideData() {
             setTimeout(function() {
-                if (tide_data['pre'] != undefined &&
-                    tide_data['obs'] != undefined &&
-                    tide_data['tab'] != undefined) {
-                    document.getElementById("title_date").innerHTML += getPrettyDate();
-                    fillHighLow(tide_data['tab']);
+                if (TIDE_DATA.get("pre") != undefined &&
+                    TIDE_DATA.get("obs") != undefined &&
+                    TIDE_DATA.get("tab") != undefined) {
+                        populateDiagrams(false);
                 } else {
                     checkTideData();
                 }
@@ -64,31 +63,29 @@
 .hl {
     color: black;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
 
     border: 1px solid transparent;
     border-radius: 5px;
-    margin-bottom: 15px;
 
-    -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+    padding-top: 10px;
+    padding-bottom: 10px;
 
-    transition: background-color 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .hl:hover {
+    border: 1px solid lightgray;
     background-color: whitesmoke;
     cursor: pointer;
 }
 
 #hl_icon {
     font-size: 1.8em;
+}
+
+#title_date {
+    padding-bottom: 15px;
 }
 
 .hl_time {
