@@ -79,7 +79,7 @@
 
 .hl:hover {
     border: 1px solid lightgray;
-    /* background-color: whitesmoke; */
+    background-color: rgba(30, 62, 100, 0.9);
     cursor: pointer;
 }
 

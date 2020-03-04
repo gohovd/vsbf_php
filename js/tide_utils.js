@@ -155,10 +155,7 @@ function fillHighLow(data) {
     var cols = hl.children;
 
     for (var i = 0; i < cols.length; i++) {
-        // then we know that the first index of the data is a high point
-        // if (Object.values(data)[i].indexOf(Math.min.apply(Math, Object.values(data))) != i && first_run ||
-        // (!first_run && i%2 == 0)) {
-        if (Object.values(data)[i] > Object.values(data)[i+1]) {
+        if (parseInt(Object.values(data)[i]) > parseInt(Object.values(data)[i+1])) {
             var classname = "fa fa-angle-double-up";
             var color = "green";
         } else {
