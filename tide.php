@@ -91,10 +91,10 @@ if (session_id() == "") {
 
     <div class="row">
         <div class="col-md-8">
-            <h2 id="title_date" style="margin-top: 30px;">I dag, </h2>
+            <h2 id="title_date" style="margin-top: 30px;"></h2>
         </div>
 
-        <div class="col-md-4 my-auto">
+        <div class="col-sm-4 my-auto">
             <button id="next_date_btn" class="fa fa-arrow-circle-right" onclick="changeDate(this.id)"></button>
             <button id="previous_date_btn" class="fa fa-arrow-circle-left" onclick="changeDate(this.id)"></button>
         </div>
@@ -107,10 +107,10 @@ if (session_id() == "") {
             font-size: 3em;
             float: right;
             margin-right: 10px;
-            color: lightgray;
+            margin-top: 25px;
         }
         #previous_date_btn:hover, #next_date_btn:hover {
-            color: black;
+            color: rgba(30, 62, 100, 0.6);
         }
         #tide button:focus {outline:0;}
     </style>

@@ -1,5 +1,6 @@
 
 var TIDE_DATA = null;
+var myChart = null;
 
 // 2020-02-25 00:00
 var now = new Date();
@@ -10,6 +11,8 @@ var _now = formatDate(now);
 // 2020-02-26
 var tomorrow = new Date();
 tomorrow.setDate(now.getDate() + 1);
+tomorrow.setHours("23");
+tomorrow.setMinutes("59");
 var _tomorrow = formatDate(tomorrow);
 
 var params = new Map().set("tide_url", "https://api.sehavniva.no/")
@@ -29,7 +32,7 @@ getTideData();
 
 
 // POPULATE TIDE DATA MAP
-function getTideData() {
+function getTideData(callback) {
     var datatypes = ['pre', 'tab', 'obs']; // fetch HTML for each API supported datatype
 
     if (TIDE_DATA == null) {
@@ -37,19 +40,22 @@ function getTideData() {
     }
 
     for (var i = 0; i < datatypes.length; i++) {
-        getTide(params.get("lat"),
-        params.get("lon"),
-        params.get("fromtime"),
-        params.get("totime"),
-        datatypes[i],
-        params.get("lang"),
-        params.get("tzone"),
-        params.get("place"),
-        params.get("interval"));
+        getTide(callback,
+            params.get("lat"),
+            params.get("lon"),
+            params.get("fromtime"),
+            params.get("totime"),
+            datatypes[i],
+            params.get("lang"),
+            params.get("tzone"),
+            params.get("place"),
+            params.get("interval")
+        );
     }
+
 }
 // GET HTML
-function getTide(latitude, longitude, fromtime, totime, type, language, timezone, place, interval) {
+function getTide(callback, latitude, longitude, fromtime, totime, type, language, timezone, place, interval) {
     var getreq = "https://api.sehavniva.no/tideapi.php?lat=" + latitude + "&lon=" + longitude;
     getreq += "&fromtime=" + fromtime + "&totime=" + totime;
     getreq += "&datatype=" + type + "&refcode=cd&place=" + place + "&file&lang=" + language;
@@ -62,7 +68,12 @@ function getTide(latitude, longitude, fromtime, totime, type, language, timezone
     };
 
     $.ajax(settings).done(function(response) {
-        TIDE_DATA.set(type, parseResponse(response))
+        TIDE_DATA.set(type, parseResponse(response));
+        if (callback) {
+            callback(true);
+            // TODO: Add spinner?
+            console.log("populating");
+        }
     });
 }
 // PARSE HTML into MAP (key/value datetime/waterlevel in cm)
@@ -82,6 +93,8 @@ function parseResponse(response) {
 }
 
 function changeDate(id) {
+    myChart.destroy();
+
     if (id == "next_date_btn") {
         now.setDate(now.getDate() + 1)
         now.setHours("0");
@@ -90,6 +103,8 @@ function changeDate(id) {
 
         // 2020-02-26
         tomorrow.setDate(now.getDate() + 1);
+        tomorrow.setHours("23");
+        tomorrow.setMinutes("59");
         _tomorrow = formatDate(tomorrow);
 
         params.set("fromtime", _now);
@@ -102,19 +117,20 @@ function changeDate(id) {
 
         // 2020-02-26
         tomorrow.setDate(now.getDate() + 1);
+        tomorrow.setHours("23");
+        tomorrow.setMinutes("59");
         _tomorrow = formatDate(tomorrow);
 
         params.set("fromtime", _now);
         params.set("totime", _tomorrow);
     }
-    getTideData();
-    populateDiagrams(true);
+    getTideData(populateDiagrams);
 }
 
 function populateDiagrams(all) {
     var title = document.getElementById("title_date");
     if (all) {
-        title.innerHTML = "Frå " + getPrettyDate(now) + ",<br>";
+        title.innerHTML = "Frå " + getPrettyDate(now) + ", ";
         title.innerHTML += "<span style='color: black;'>til " + getPrettyDate(tomorrow) + "</span>";
         lineChart(TIDE_DATA);
         fillHighLow(TIDE_DATA.get("tab"));
@@ -157,7 +173,7 @@ function fillHighLow(data) {
     for (var i = 0; i < cols.length; i++) {
         if (parseInt(Object.values(data)[i]) > parseInt(Object.values(data)[i+1])) {
             var classname = "fa fa-angle-double-up";
-            var color = "green";
+            var color = "lightgreen";
         } else {
             var classname = "fa fa-angle-double-down";
             var color = "red";
@@ -172,11 +188,11 @@ function fillHighLow(data) {
         cols[i].getElementsByClassName("hl_cm")[0].innerHTML = wlevel + " cm";
     }
 
-    for (var i = 0; i < cols.length; i++) {
-        if (cols[i].children[0].className == "") {
-            cols[i].parentElement.removeChild(cols[i]);
-        }
-    }
+    // for (var i = 0; i < cols.length; i++) {
+    //     if (cols[i].children[0].className == "") {
+    //         cols[i].parentElement.removeChild(cols[i]);
+    //     }
+    // }
 }
 
 function getPlaces() {
@@ -216,7 +232,7 @@ function lineChart(map) {
     title += getPrettyDate(now);
     title += " til " + getPrettyDate(tomorrow);
 
-    var myChart = new Chart(ctx, {
+    myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: getPrettyTimes(Object.keys(map.get('pre')))
