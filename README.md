@@ -1,21 +1,11 @@
 # Vike Småbåtforening
 Ett web prosjekt skrevet i HTML/CSS/JS i front med PHP bak.
-Lyst å bidra med noen av de funksjonelle kravene under? Ta gjerne kontakt via goran.hovde@gmail.com.
-
-Under kan du lese om de forskjellige potensielle forbedringene dette nettstedet kan nyte godt av.
 
 ## Neste
-- Chart.js for tidevann (månepos)
 - Hammer.js for swiping
 - Galleri og bildeopplasting
-
-## Brukere
-- Hvem som helst kan registere seg på nettstedet
-- Utelukkende administrator har ekstra funksjonalitet
-
-## Sikkerhet
-- Trafikken på nettstedet er kryptert med TLS (i.e. https)
-- Passord blir kryptert og lagret som hash i database
+- Epost: innsending skjema, abonner, send ut til abonnenter skjema
+- Admin CMS side (bruker oversikt, etc..)
 
 ## Funksjonelle krav
 #### Brukere
@@ -40,5 +30,3 @@ Under kan du lese om de forskjellige potensielle forbedringene dette nettstedet 
 
 #### Diverse
 + Bruk av /js/show-message.js; tilbakemelding til bruker på handling
-+ Tilbakemelding på registreringsskjema når brukernavn eller epost finnes fra før
-+ Redirect til registrerings-siden når det feiler
