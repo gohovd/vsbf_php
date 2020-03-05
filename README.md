@@ -1,5 +1,5 @@
 # Vike Småbåtforening
-Web prosjekt skrevet i HTML/CSS/JS i front med PHP bak.
+Web prosjekt med HTML/CSS/JS i front og PHP bak.
 
 ## Neste
 - Hammer.js for swiping
