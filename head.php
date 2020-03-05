@@ -33,6 +33,7 @@
 
       <script src="./js/show-message.js"></script>
       <script src="./js/utils.js"></script>
+      <script src="./js/tide_utils.js"></script>
 
       <!-- PhotoSwipe -->
       <link rel="stylesheet" href="./lib/photoswipe/photoswipe.css">

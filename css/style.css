@@ -50,6 +50,7 @@
         width: 100%;
         font-size: 1.5em !important;
         text-align: center !important;
+        padding-bottom: 20px;
     }
 }
 
@@ -58,12 +59,16 @@
     width: 100% !important;
 }
 
+.component {
+    padding-bottom: 35px !important;
+}
+
+
 .heading {
     width: 100%;
     margin-top: 5px;
     font-size: 3em;
     text-align: center !important;
-    padding-bottom: 15px;
 
 }
 .slide-out {
@@ -299,6 +304,10 @@ button:disabled:hover {
     padding-left: 20px;
     padding-right: 20px;
     transition: max-height 1s ease-out;
+}
+
+h4 {
+    color: rgb(37, 52, 104) !important;
 }
 
 .post #title {

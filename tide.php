@@ -82,14 +82,38 @@ if (session_id() == "") {
     }
 
     #tide {
-        height: 90vh;
+        height: 110vh;
     }
 }
 </style>
 
 <div id="tide" class="container">
 
-    <h2 id="title_date" style="margin-top: 30px;">I dag, </h2>
+    <div class="row">
+        <div class="col-md-8">
+            <h2 id="title_date" style="margin-top: 30px;"></h2>
+        </div>
+
+        <div class="col-sm-4 my-auto">
+            <button id="next_date_btn" class="fa fa-arrow-circle-right" onclick="changeDate(this.id)"></button>
+            <button id="previous_date_btn" class="fa fa-arrow-circle-left" onclick="changeDate(this.id)"></button>
+        </div>
+    </div>
+
+    <style>
+        #previous_date_btn, #next_date_btn {
+            background-color: transparent;
+            border-color: transparent;
+            font-size: 3em;
+            float: right;
+            margin-right: 10px;
+            margin-top: 25px;
+        }
+        #previous_date_btn:hover, #next_date_btn:hover {
+            color: rgba(30, 62, 100, 0.6);
+        }
+        #tide button:focus {outline:0;}
+    </style>
 
     <div id="hl_row" class="row hl">
         <div class="col-sm-3">
@@ -179,12 +203,10 @@ if (session_id() == "") {
 
         function checkTideData() {
             setTimeout(function() {
-                if (tide_data['pre'] != undefined &&
-                    tide_data['obs'] != undefined &&
-                    tide_data['tab'] != undefined) {
-                    document.getElementById("title_date").innerHTML += getPrettyDate();
-                    lineChart(tide_data);
-                    fillHighLow(tide_data['tab']);
+                if (TIDE_DATA.get("pre") != undefined &&
+                    TIDE_DATA.get("obs") != undefined &&
+                    TIDE_DATA.get("tab") != undefined) {
+                        populateDiagrams(true);
                 } else {
                     checkTideData();
                 }
@@ -200,5 +222,5 @@ include('./foot.php');
 <style>
 	footer {
 		position: inherit;
-	}
+    }
 </style>
