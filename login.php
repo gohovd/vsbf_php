@@ -67,13 +67,13 @@ if (session_id() == "") {
             </div>
 
             <input type="submit" id="login-btn" class="btn" value="LOGG INN">
-            <!-- <input style="margin-top: 10px;" onclick="window.location = '<?php echo $loginURL ?>';" type="facebook-login" id="facebook-login-btn" class="btn btn-primary" value="Logg inn med Facebook"> -->
+            <!-- <input style="margin-top: 10px;" onclick="window.location = '<?php //echo $loginURL ?>';" type="facebook-login" id="facebook-login-btn" class="btn btn-primary" value="Logg inn med Facebook"> -->
             <!-- TODO: Enable facebook connect with / login -->
         </form>
 
-        <!-- <div id="register-btn">
+        <div id="register-btn">
             <a href="./register.php">NY KONTO</a>
-        </div>         -->
+        </div>
     </div>
 
 </body>

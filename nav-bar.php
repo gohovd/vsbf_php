@@ -25,6 +25,13 @@ $resources = array(
         'restricted' => false,
         'position' => 'left'
     ),
+    'INNSTILLINGER' => array(
+        'url' => '/settings.php',
+        'icon' => 'fa fa-sliders',
+        'function' => '',
+        'restricted' => true,
+        'position' => 'right'
+    ),
     // 'GALLERI' => array(
     //     'url' => '/galleri.php',
     //     'icon' => 'fa fa-picture-o',

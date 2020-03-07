@@ -41,5 +41,5 @@
       <script src="lib/photoswipe/photoswipe.min.js"></script>
       <script src="lib/photoswipe/photoswipe-ui-default.min.js"></script>
 
-      <?php $baseUrl = "/php_web_project/vikesmabat"; ?>
+      <?php $baseUrl = "/vsbf_php"; ?>
 </head>

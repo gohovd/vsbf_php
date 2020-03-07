@@ -16,6 +16,25 @@ if (session_id() == "") {
 
 <body>
 
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        appId      : '783498295473372',
+        xfbml      : true,
+        version    : 'v6.0'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <?php echo '<div id="message-container"></div>'; ?>
 
     <!-- TODO: Sliding gallery image -->
@@ -41,7 +60,6 @@ if (session_id() == "") {
     ?>
 
     <div class="container" id="content">
-
         <div class="component">
             <?php include('./components/tide_widget.php'); ?>
         </div>
