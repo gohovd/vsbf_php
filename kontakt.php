@@ -23,8 +23,8 @@ if (session_id() == "") {
 					<div class="card-body">
 						<h5 class="card-title" style="color: black;">Addresse</h5>
 						<p class="card-text">
-							Vike Småbåtforening ved Bjørn Ove Ulla<br>
-							Heen-feltet<br>
+							Vike Småbåtforening ved Roar Selvnes<br>
+							Kroksetvegen 69<br>
 							6392 Vikebukt</p>
 					</div>
 				</div>
@@ -46,9 +46,9 @@ if (session_id() == "") {
 					</tr>
 					<tr>
 						<td>Formann</td>
-						<td>Bjørn Ove Ulla<br></td>
-						<td>bjorn.ulla (at) timpex.no</td>
-						<td>924 34 571<br></td>
+						<td>Roar Selvnes<br></td>
+						<td>forlandjanolav (at) gmail.com</td>
+						<td>934 05 517<br></td>
 					</tr>
 					<tr>
 						<td>Nest formann<br></td>

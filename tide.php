@@ -10,7 +10,7 @@ if (session_id() == "") {
 <?php include('./nav-bar.php'); ?>
 
 <style>
-    .moon,
+.moon,
 .settings,
 .hl {
     margin-bottom: 15px;
