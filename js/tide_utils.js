@@ -135,7 +135,7 @@ function populateDiagrams(all) {
         lineChart(TIDE_DATA);
         fillHighLow(TIDE_DATA.get("tab"));
     } else {
-        title.innerHTML = "I dag og i morgon, for Ålesund";
+        // title.innerHTML = "I dag og i morgon, for Ålesund";
         fillHighLow(TIDE_DATA.get("tab"));
     }
 
