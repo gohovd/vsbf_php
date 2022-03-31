@@ -1,5 +1,5 @@
 # Vike Småbåtforening
-Ett web prosjekt skrevet i HTML/CSS/JS i front med PHP bak.
+Web prosjekt med HTML/CSS/JS i front og PHP bak.
 
 ## Neste
 - Hammer.js for swiping
@@ -10,7 +10,8 @@ Ett web prosjekt skrevet i HTML/CSS/JS i front med PHP bak.
 ## Funksjonelle krav
 #### Brukere
 + Som admin kunne lese, endre, slette, lage brukere.
-+ Send mail til bruker med aktiverings kode
++ Aktivere konto via mail link
++ Tilbakestille passord via mail link
 + Aktivering av konto åpner ekstra funksjonalitet
 + Aktiverte brukere kan kommentere
 + Brukere kan logge inn med Facebook profil
